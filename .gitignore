@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+### replit ###
+# Replit config file
+.replit
+
+# Replit Nix config file
+replit.nix
+
+vite.config.js
+
+# End of https://www.toptal.com/developers/gitignore/api/replit
