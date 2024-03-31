@@ -1,9 +1,13 @@
+import Espacio from "./espacio.js"
+import Clima from "./clima.js"
+
 export default class Edificio {
 
-    constructor(_numeroPisos, _espacios = {}, _ubicacion = '') {
+    constructor(_numeroPisos, _espacios = {}, _ubicacion = '', _clima = null) {
         this._espacios = _espacios
         this._numeroPisos = _numeroPisos
         this._ubicacion = _ubicacion
+        this._clima = _clima
     }
 
     get espacios() {
@@ -14,14 +18,24 @@ export default class Edificio {
         this._espacios = _espacios
     }
 
-    verificarHabitabilidad() {
-        for (let espacio of this._espacios) {
-            const estadoHabitabilidad = espacio.calcularHabitabilidad()
-            console.log(`Espacio ${espacio.nombre}: ${estadoHabitabilidad}`)
-        }
+    get clima() {
+        return this._clima
     }
 
-    agregarEspacio(espacio) {
-        this._espacios.push(espacio)
+    set clima(_clima) {
+        this._clima = _clima
+    }
+
+    verificarHabitabilidad(hrs) {
+        console.log(this._espacios)
+        for (let piso in this._espacios) {
+            this._espacios[piso].forEach((espacio) => {
+                let estadoHabitabilidad
+                if (espacio instanceof Espacio) {    
+                    estadoHabitabilidad = espacio.calcularHabitabilidad(this._clima, hrs)
+                    console.log(`Espacio ${espacio}: ${estadoHabitabilidad} carga termica: ${espacio.calcularCargaTermica()}`)
+                }
+            })
+        }
     }
 }

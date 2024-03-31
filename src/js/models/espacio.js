@@ -1,11 +1,10 @@
 import FuenteTermica from "../utils/fuenteTermica.js"
 import Material from "./material.js"
+import Clima from "./clima.js"
 
-const valorMaximoPermitido = 0
-const valorMinimoPermitido = 0
 export default class Espacio extends FuenteTermica {
 
-    constructor(_areaPared, _areaPiso, _personas = [], _nombre = null, _id = null, _materiales = { 'pared': null, 'suelo': null }, _entorno = null, _fuentesCalor = {}, _temperatura = null) {
+    constructor(_areaPared, _areaPiso, _personas = [], _nombre = null, _id = null, _materiales = { 'pared': 0, 'suelo': 0 }, _entorno = null, _fuentesCalor = {}, _temperatura = null) {
         super()
         this._id = _id
         this._nombre = _nombre
@@ -17,9 +16,7 @@ export default class Espacio extends FuenteTermica {
         this._temperatura = _temperatura
         this._entorno = _entorno
         this._fuentesTermicas = []
-        this.agregarFuenteTermica(this)
         this._personas.forEach((persona) => {
-            //console.log(persona, persona.constructor.name)
             if (persona != null) {
                 this.agregarFuenteTermica(persona)
             }
@@ -35,11 +32,8 @@ export default class Espacio extends FuenteTermica {
             }
         }
         if (this._entorno != null) {
-            console.log('hola')
-            this.agregarEntorno(this._entorno)
-            console.log('xd')
+            this.agregarFuenteTermica(this._entorno)
         }
-        console.log(this._fuentesTermicas)
     }
 
     get nombre() {
@@ -104,18 +98,39 @@ export default class Espacio extends FuenteTermica {
     agregarFuenteTermica(fuenteTermica) {
         if (fuenteTermica instanceof FuenteTermica) {
             if (fuenteTermica != null) {
-                console.log('tipo', fuenteTermica.constructor.name)
                 this._fuentesTermicas.push(fuenteTermica)
-                //console.log(this._fuentesTermicas)
             }
         } else {
-            console.log('el objeto no es una fuente termica', fuenteTermica.constructor.name)
+            //console.log('el objeto no es una fuente termica', fuenteTermica.constructor.name)
         }
     }
 
-    /*agregarMaterial(material) {
-        this._materiales.push(material)
-    }*/
+    calcularCargaTermica() {
+        let cargaTermica = 0
+        cargaTermica = ((this._areaPared * this._materiales['pared'].coeficiente) + (this._areaPiso * 2 *this._materiales['suelo'].coeficiente)) / (this._areaPared + 2 * this._areaPiso)
+        this._fuentesTermicas.forEach((element) => {
+            if (element instanceof FuenteTermica) {
+                cargaTermica += element.calcularCargaTermica()
+            }
+        })
+        console.log(`carga termica total : ${cargaTermica}`)
+        return cargaTermica
+    }
+
+    calcularHabitabilidad(clima, hrs) {
+        const cargaTermica = hrs*this.calcularCargaTermica()
+        const valorMaximoPermitido = clima.valorMaximo
+        const valorMinimoPermitido = clima.valorMinimo
+        console.log(`valorMaximoPermitido: ${valorMaximoPermitido}`)
+        console.log(`valorMinimoPermitido: ${valorMinimoPermitido}`)
+        if (cargaTermica > valorMaximoPermitido) {
+            return "No habitable"
+        } else if (cargaTermica < valorMinimoPermitido) {
+            return "Podría modificarse para habitar"
+        } else {
+            return "Habitable"
+        }
+    }
 
     agregarFuenteDeCalor(_fuentesCalor) {
         this._fuentesCalor = _fuentesCalor
@@ -129,26 +144,11 @@ export default class Espacio extends FuenteTermica {
         this._entorno = _entorno
     }
 
-    calcularCargaTermica() {
-        return ((this._areaPared * new Material(this._materiales['pared']).coeficiente) + (this.areapiso * 2 * new Material(this._materiales['suelo']).coeficiente)) / (this._areaPared + 2 * this._areaPiso)
-    }
-
     verificarActividad(persona) {
 
     }
 
     verificarTipoRopa(persona) {
 
-    }
-
-    calcularHabitabilidad() {
-        const cargaTermica = this.calcularCargaTermica()
-        if (cargaTermica > valorMaximoPermitido) {
-            return "No habitable"
-        } else if (cargaTermica < valorMinimoPermitido) {
-            return "Podría modificarse para habitar"
-        } else {
-            return "Habitable"
-        }
     }
 }

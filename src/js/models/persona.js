@@ -2,11 +2,11 @@ import FuenteTermica from "../utils/fuenteTermica.js"
 
 export default class Persona extends FuenteTermica {
 
-    constructor(_vestimenta, _actividad, _clima) {
+    constructor(_vestimenta, _clima, _actividad) {
         super()
         this._vestimenta = _vestimenta
-        this._actividad = _actividad;
         this._climaActual = _clima
+        this._actividad = _actividad
     }
 
     get vestimenta() {
@@ -35,7 +35,7 @@ export default class Persona extends FuenteTermica {
 
     calcularCargaTermica() {
         let cargaTermica
-        switch(vestimenta){
+        switch(this._vestimenta){
             case 'ligera':
                 switch(this.climaActual){
                     case 'templado':
@@ -47,7 +47,7 @@ export default class Persona extends FuenteTermica {
                 }
             break
             case 'abrigada':   
-                switch(this.climaActual){
+                switch(this._climaActual){
                     case 'templado':
                         cargaTermica = 50
                     break

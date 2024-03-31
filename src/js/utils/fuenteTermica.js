@@ -5,7 +5,7 @@ export default class FuenteTermica {
         }
     }
 
-    caldularCargaTermica() {
+    calcularCargaTermica() {
         throw new Error("metodo abstracto 'caldularCargaTermica()' no")
     }
 }

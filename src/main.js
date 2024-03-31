@@ -3,6 +3,7 @@ import Espacio from './js/models/espacio.js'
 import Material from './js/models/material.js'
 import Persona from './js/models/persona.js'
 import Entorno from './js/models/entorno.js'
+import Clima from './js/models/clima.js'
 
 let climaTemplado = {
   'amanecer': 280,
@@ -18,6 +19,9 @@ let climaCalido = {
   'media tarde': 900,
   'atardecer': 400
 }
+
+let templado = new Clima(35000,12000)
+let calido = new Clima(8000,25000)
 
 let entornoTemplado = new Entorno('media tarde',climaTemplado)
 let entornoCalido = new Entorno('medio dia', climaCalido)
@@ -53,6 +57,10 @@ let espacios = {
   5 : [new Espacio(10, 10, personas, null, null, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)]
 }
 
-let edificio = new Edificio(5, espacios,'choco')
+let edificio = new Edificio(5, espacios,'choco', calido)
+
+edificio.verificarHabitabilidad(1)
+
+//espacios[1][0].calcularCargaTermica()
 
 //console.log(edificio.espacios)
