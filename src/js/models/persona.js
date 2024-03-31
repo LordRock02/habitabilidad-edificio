@@ -1,6 +1,76 @@
-class Persona {
-    constructor(vestimenta, actividad) {
-        this.vestimenta = vestimenta;
-        this.actividad = actividad;
+import FuenteTermica from "../utils/fuenteTermica.js"
+
+export default class Persona extends FuenteTermica {
+
+    constructor(_vestimenta, _actividad, _clima) {
+        super()
+        this._vestimenta = _vestimenta
+        this._actividad = _actividad;
+        this._climaActual = _clima
+    }
+
+    get vestimenta() {
+        return this._vestimenta
+    }
+
+    set vestimenta(_vestimenta) {
+        this._vestimenta = _vestimenta
+    }
+
+    get actividad() {
+        return this._actividad
+    }
+
+    set actividad(_actividad) {
+        this._actividad = _actividad
+    }
+
+    get climaActual() {
+        return this._climaActual
+    }
+
+    set climaActual(_clima) {
+        this._climaActual = _clima
+    }
+
+    calcularCargaTermica() {
+        let cargaTermica
+        switch(vestimenta){
+            case 'ligera':
+                switch(this.climaActual){
+                    case 'templado':
+                        cargaTermica = 15
+                    break
+                    case 'calido':
+                        cargaTermica = 25
+                    break
+                }
+            break
+            case 'abrigada':   
+                switch(this.climaActual){
+                    case 'templado':
+                        cargaTermica = 50
+                    break
+                    case 'calido':
+                        cargaTermica = 100
+                    break
+                }
+            break
+        }
+        switch(this._actividad){
+            case 'sedentaria':
+                cargaTermica += 70
+            break
+            case 'ligera':
+                cargaTermica += 90
+            break
+            case 'moderada':
+                cargaTermica += 125
+            break
+            case 'intensa':
+                cargaTermica += 175
+            break
+        }
+        return cargaTermica
     }
 }

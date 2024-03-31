@@ -1,26 +1,27 @@
-class Edificio {
-    constructor(numeroPisos, ubicacion) {
-        this.listaEspacios = {};
-        this.numeroPisos = numeroPisos;
-        this.ubicacion = ubicacion;
+export default class Edificio {
+
+    constructor(_numeroPisos, _espacios = {}, _ubicacion = '') {
+        this._espacios = _espacios
+        this._numeroPisos = _numeroPisos
+        this._ubicacion = _ubicacion
     }
 
-    get listaEspacios(){
-        return this.listaEspacios
+    get espacios() {
+        return this._espacios
     }
 
-    set listaEspacios(listaEspacios){
-        this.listaEspacios = listaEspacios
+    set espacios(_espacios) {
+        this._espacios = _espacios
     }
 
     verificarHabitabilidad() {
-        for (let espacio of this.listaEspacios) {
-            const estadoHabitabilidad = espacio.calcularHabitabilidad();
-            console.log(`Espacio ${espacio.nombre}: ${estadoHabitabilidad}`);
+        for (let espacio of this._espacios) {
+            const estadoHabitabilidad = espacio.calcularHabitabilidad()
+            console.log(`Espacio ${espacio.nombre}: ${estadoHabitabilidad}`)
         }
     }
 
     agregarEspacio(espacio) {
-        this.listaEspacios.push(espacio);
+        this._espacios.push(espacio)
     }
 }
