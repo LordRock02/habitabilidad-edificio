@@ -26,6 +26,36 @@ export default class Edificio {
         this._clima = _clima
     }
 
+    buscarEspacio(id){
+        let espacioEncontrado
+        for(let piso in this._espacios){
+            this._espacios[piso].forEach((espacio) => {
+                if(espacio instanceof Espacio){
+                    if(espacio.id == id){
+                        espacioEncontrado = espacio
+                    }
+                }
+            })
+        }
+        return espacioEncontrado
+    }
+
+    agregarVecinosEspacio(id, ...idVecinos){
+        const espacio = this.buscarEspacio(id)
+        if(espacio != null){
+            let vecinos = []
+            for(var i = 0; i<idVecinos.length; i++){
+                vecinos.push(this.buscarEspacio(idVecinos[i]))
+            }
+            vecinos.forEach((vecino) => {
+                if(espacio instanceof Espacio){
+                    espacio.agregarVecino(vecino)
+                }
+            })
+        }
+
+    }
+
     verificarHabitabilidad(hrs) {
         console.log(this._espacios)
         for (let piso in this._espacios) {

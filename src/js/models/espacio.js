@@ -4,7 +4,7 @@ import Clima from "./clima.js"
 
 export default class Espacio extends FuenteTermica {
 
-    constructor(_areaPared, _areaPiso, _personas = [], _nombre = null, _id = null, _materiales = { 'pared': 0, 'suelo': 0 }, _entorno = null, _fuentesCalor = {}, _temperatura = null) {
+    constructor(_areaPared, _areaPiso, _personas = [], _nombre = null, _id = null, _materiales = { 'pared': 0, 'suelo': 0 }, _entorno = null, _fuentesCalor = [], _vecinos = {}, _temperatura = null) {
         super()
         this._id = _id
         this._nombre = _nombre
@@ -15,6 +15,7 @@ export default class Espacio extends FuenteTermica {
         this._personas = _personas
         this._temperatura = _temperatura
         this._entorno = _entorno
+        this._vecinos = _vecinos
         this._fuentesTermicas = []
         this._personas.forEach((persona) => {
             if (persona != null) {
@@ -26,14 +27,22 @@ export default class Espacio extends FuenteTermica {
                 this.agregarFuenteTermica(this._materiales[clave])
             }
         }
-        for (let clave in this._fuentesCalor) {
-            if (this._fuentesCalor[clave] != null) {
-                this.agregarFuenteTermica(this._fuentesCalor[clave])
-            }
+        if (this.__fuentesCalor) {
+            this.__fuentesCalor.forEach((fuente) => {
+                this.agregarFuenteDeCalor(fuente)
+            })
         }
         if (this._entorno != null) {
             this.agregarFuenteTermica(this._entorno)
         }
+    }
+
+    get id(){
+        return this._id
+    }
+
+    set id(_id){
+        this._id = _id
     }
 
     get nombre() {
@@ -95,6 +104,20 @@ export default class Espacio extends FuenteTermica {
         return this._fuentesTermicas
     }
 
+    get vecinos() {
+        return this._vecinos
+    }
+
+    set vecinos(_vecinos) {
+        this._vecinos = _vecinos
+    }
+
+    agregarVecino(vecino) {
+        if (vecino instanceof Espacio) {
+            this._vecinos[vecino.id] = vecino.calcularCargaTermica()
+        }
+    }
+
     agregarFuenteTermica(fuenteTermica) {
         if (fuenteTermica instanceof FuenteTermica) {
             if (fuenteTermica != null) {
@@ -107,7 +130,7 @@ export default class Espacio extends FuenteTermica {
 
     calcularCargaTermica() {
         let cargaTermica = 0
-        cargaTermica = ((this._areaPared * this._materiales['pared'].coeficiente) + (this._areaPiso * 2 *this._materiales['suelo'].coeficiente)) / (this._areaPared + 2 * this._areaPiso)
+        cargaTermica = ((this._areaPared * this._materiales['pared'].coeficiente) + (this._areaPiso * 2 * this._materiales['suelo'].coeficiente)) / (this._areaPared + 2 * this._areaPiso)
         this._fuentesTermicas.forEach((element) => {
             if (element instanceof FuenteTermica) {
                 cargaTermica += element.calcularCargaTermica()
@@ -118,7 +141,7 @@ export default class Espacio extends FuenteTermica {
     }
 
     calcularHabitabilidad(clima, hrs) {
-        const cargaTermica = hrs*this.calcularCargaTermica()
+        const cargaTermica = hrs * this.calcularCargaTermica()
         const valorMaximoPermitido = clima.valorMaximo
         const valorMinimoPermitido = clima.valorMinimo
         console.log(`valorMaximoPermitido: ${valorMaximoPermitido}`)

@@ -1,35 +1,37 @@
 import FuenteTermica from "../utils/fuenteTermica.js";
-class Fuente extends FuenteTermica{
-    constructor(_nombre, _tipo, _potenciaTermica) {
+class Fuente extends FuenteTermica {
+    constructor(_nombre, _tipo, _cargaTermica) {
         super()
         this._nombre = _nombre;
         this._tipo = _tipo;
-        this._potenciaTermica = _potenciaTermica;
+        this._cargaTermica = _cargaTermica;
     }
 
-    get nombre(){
+    get nombre() {
         return this._nombre
     }
 
-    set nombre(_nombre){
+    set nombre(_nombre) {
         this._nombre = _nombre
     }
 
-    get tipo(){
+    get tipo() {
         return this._tipo
     }
 
-    set tipo(_tipo){
+    set tipo(_tipo) {
         this._tipo = _tipo
     }
 
-    get potenciaTermica(){
-        return this._potenciaTermica
+    get cargaTermica() {
+        return this._cargaTermica
     }
 
-    set potenciaTermica(_potenciaTermica){
-        this._potenciaTermica = _potenciaTermica
+    set cargaTermica(_cargaTermica) {
+        this._cargaTermica = _cargaTermica
     }
 
-    calcularCargaTermicas(){ }
+    calcularCargaTermicas() {
+        return this._cargaTermica
+    }
 }

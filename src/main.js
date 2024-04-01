@@ -27,7 +27,7 @@ let entornoTemplado = new Entorno('media tarde',climaTemplado)
 let entornoCalido = new Entorno('medio dia', climaCalido)
 
 let personas = [
-  new Persona('ligera', 'calido', 'moderada'),
+  new Persona('ligera', 'calido', 'moderada')/*,
   new Persona('abrigada', 'calido', 'sedentaria'),
   new Persona('ligera', 'calido', 'moderada'),
   new Persona('abrigada', 'calido', 'sedentaria'),
@@ -46,21 +46,24 @@ let personas = [
   new Persona('ligera', 'calido', 'moderada'),
   new Persona('abrigada', 'calido', 'ligera'),
   new Persona('ligera', 'calido', 'moderada'),
-  new Persona('abrigada', 'calido', 'intensa')
+  new Persona('abrigada', 'calido', 'intensa')*/
 ]
 
 let espacios = {
-  1 : [new Espacio(10, 10, personas, null, null, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
-  2 : [new Espacio(10, 10, personas, null, null, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
-  3 : [new Espacio(10, 10, personas, null, null, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
-  4 : [new Espacio(10, 10, personas, null, null, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
-  5 : [new Espacio(10, 10, personas, null, null, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)]
+  1 : [new Espacio(10, 10, personas, null, 1, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido), new Espacio(10, 10, personas, null, 6, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
+  2 : [new Espacio(10, 10, personas, null, 2, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
+  3 : [new Espacio(10, 10, personas, null, 3, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
+  4 : [new Espacio(10, 10, personas, null, 4, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
+  5 : [new Espacio(10, 10, personas, null, 5, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)]
 }
 
 let edificio = new Edificio(5, espacios,'choco', calido)
 
-edificio.verificarHabitabilidad(1)
 
-//espacios[1][0].calcularCargaTermica()
+//edificio.verificarHabitabilidad(1)
+edificio.agregarVecinosEspacio(1,6, 5)
 
-//console.log(edificio.espacios)
+// for( let espacio in edificio.buscarEspacio(1).vecinos){
+//     console.log(espacio)
+// }
+console.log(edificio.buscarEspacio(1))
