@@ -4,6 +4,8 @@ import Material from './js/models/material.js'
 import Persona from './js/models/persona.js'
 import Entorno from './js/models/entorno.js'
 import Clima from './js/models/clima.js'
+import Diccionario from './json/dictionary.json'
+
 
 let climaTemplado = {
   'amanecer': 280,
@@ -67,3 +69,4 @@ edificio.agregarVecinosEspacio(1,6, 5)
 //     console.log(espacio)
 // }
 console.log(edificio.buscarEspacio(1))
+console.log(Diccionario)

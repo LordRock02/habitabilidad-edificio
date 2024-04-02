@@ -1,0 +1,43 @@
+{     
+    "Piso1":[    
+        {
+            "_id":"101", 
+            "_nombre":"Habitacion 101", 
+            "_materiales":{
+                "pared":{
+                    "_id": "",
+                    "_nombre": "hormigon",
+                    "_tipo": "",
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": "",
+                    "_nombre": "hormigon",
+                    "_tipo": "",
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":[], 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":0, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":[], 
+            "_fuentesTermicas":[]
+        }
+    ]   
+}
