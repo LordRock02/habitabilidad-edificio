@@ -56,14 +56,14 @@ export default class Edificio {
 
     }
 
-    verificarHabitabilidad(hrs) {
+    verificarHabitabilidad(hrs) {//tiempo el cual el espacio va a ser habitado
         console.log(this._espacios)
         for (let piso in this._espacios) {
             this._espacios[piso].forEach((espacio) => {
                 let estadoHabitabilidad
                 if (espacio instanceof Espacio) {    
                     estadoHabitabilidad = espacio.calcularHabitabilidad(this._clima, hrs)
-                    console.log(`Espacio ${espacio}: ${estadoHabitabilidad} carga termica: ${espacio.calcularCargaTermica()}`)
+                    console.log(`Espacio ${espacio.nombre}: ${estadoHabitabilidad} carga termica: ${espacio.calcularCargaTermica()}`)
                 }
             })
         }

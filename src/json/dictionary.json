@@ -5,23 +5,23 @@
             "_nombre":"Habitacion 101", 
             "_materiales":{
                 "pared":{
-                    "_id": "",
+                    "_id": null,
                     "_nombre": "hormigon",
-                    "_tipo": "",
-                    "_coeficiente": 1.35
+                    "_tipo": null,
+                    "_coeficiente": 200
                 },
                 "suelo":{
-                    "_id": "",
+                    "_id": null,
                     "_nombre": "hormigon",
-                    "_tipo": "",
-                    "_coeficiente": 1.35
+                    "_tipo": null,
+                    "_coeficiente": 100000
                 }
             }, 
-            "_fuentesCalor":[], 
+            "_fuentesCalor":null, 
             "_areaPared":10,
             "_areaPiso":10, 
             "_personas":[],
-            "_temperatura":0, 
+            "_temperatura":null, 
             "_entorno":{
                 "_radiacionSolar":0, 
                 "_numeroVentanas":0, 
@@ -36,8 +36,351 @@
                 
                 }
             }, 
-            "_vecinos":[], 
-            "_fuentesTermicas":[]
+            "_vecinos":{}
+        },
+        {
+            "_id":"102", 
+            "_nombre":"Habitacion 102", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 0.0002
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 0.00001
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
+        },
+        {
+            "_id":"103", 
+            "_nombre":"Habitacion 103", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
+        },
+        {
+            "_id":"104", 
+            "_nombre":"Habitacion 104", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
+        },
+        {
+            "_id":"105", 
+            "_nombre":"Habitacion 105", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
         }
-    ]   
+    ],
+    "Piso2":[    
+        {
+            "_id":"201", 
+            "_nombre":"Habitacion 201", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
+        },
+        {
+            "_id":"202", 
+            "_nombre":"Habitacion 202", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
+        },
+        {
+            "_id":"203", 
+            "_nombre":"Habitacion 203", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
+        },
+        {
+            "_id":"204", 
+            "_nombre":"Habitacion 204", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
+        },
+        {
+            "_id":"205", 
+            "_nombre":"Habitacion 205", 
+            "_materiales":{
+                "pared":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                },
+                "suelo":{
+                    "_id": null,
+                    "_nombre": "hormigon",
+                    "_tipo": null,
+                    "_coeficiente": 1.35
+                }
+            }, 
+            "_fuentesCalor":null, 
+            "_areaPared":10,
+            "_areaPiso":10, 
+            "_personas":[],
+            "_temperatura":null, 
+            "_entorno":{
+                "_radiacionSolar":0, 
+                "_numeroVentanas":0, 
+                "_absorcionVidrio":0, 
+                "_horaDia":"medio dia",
+                "_cargaTermicaHoras":{
+                    "amanecer": 350,
+                    "media manana": 900,
+                    "medio dia": 1200,
+                    "media tarde": 900,
+                    "atardecer": 400
+                
+                }
+            }, 
+            "_vecinos":{}
+        }
+    ] 
 }

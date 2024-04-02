@@ -4,8 +4,39 @@ import Material from './js/models/material.js'
 import Persona from './js/models/persona.js'
 import Entorno from './js/models/entorno.js'
 import Clima from './js/models/clima.js'
-import Diccionario from './json/dictionary.json'
+import diccionario from './json/dictionary.json'
 
+
+console.log(diccionario.Piso1[0])
+
+let espaciosEdificio = {}
+
+for (let piso in diccionario){
+  let espacios = []
+  diccionario[piso].forEach(espacio => {
+    let fuentesCalor = null
+    let materiales = { 'pared': 0, 'suelo': 0 }
+    let entorno = null
+    if (espacio._fuentesCalor){
+      fuentesCalor = espacio._fuentesCalor
+    }
+    if (espacio._materiales){
+      let componente = espacio._materiales.pared
+      materiales['pared'] = new Material(componente._coeficiente, componente._nombre, componente._tipo, componente._id)
+      componente = espacio._materiales.suelo
+      materiales['suelo'] = new Material(componente._coeficiente, componente._nombre, componente._tipo, componente._id)
+    }
+    if(espacio._entorno){
+      let componente = espacio._entorno
+      entorno = new Entorno(componente._horaDia, componente._cargaTermicaHoras, componente._radiacionSolar, componente._numeroVentanas, componente._absorcionVidrio, componente._vecinos)
+    }
+    let nuevoEspacio = new Espacio(espacio._areaPared, espacio._areaPiso, espacio._personas, espacio._nombre, espacio._id, materiales, entorno, fuentesCalor, espacio._vecinos, espacio._temperatura)
+    espacios.push(nuevoEspacio)
+    console.log(`${piso} espacio agregado:\n ${nuevoEspacio.nombre}`)
+    espaciosEdificio[piso] = espacios
+    //console.log(`espacio ${espacio._id}`)
+  })
+}
 
 let climaTemplado = {
   'amanecer': 280,
@@ -29,7 +60,7 @@ let entornoTemplado = new Entorno('media tarde',climaTemplado)
 let entornoCalido = new Entorno('medio dia', climaCalido)
 
 let personas = [
-  new Persona('ligera', 'calido', 'moderada')/*,
+  new Persona('ligera', 'calido', 'moderada'),
   new Persona('abrigada', 'calido', 'sedentaria'),
   new Persona('ligera', 'calido', 'moderada'),
   new Persona('abrigada', 'calido', 'sedentaria'),
@@ -48,25 +79,27 @@ let personas = [
   new Persona('ligera', 'calido', 'moderada'),
   new Persona('abrigada', 'calido', 'ligera'),
   new Persona('ligera', 'calido', 'moderada'),
-  new Persona('abrigada', 'calido', 'intensa')*/
+  new Persona('abrigada', 'calido', 'intensa')
 ]
 
-let espacios = {
-  1 : [new Espacio(10, 10, personas, null, 1, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido), new Espacio(10, 10, personas, null, 6, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
-  2 : [new Espacio(10, 10, personas, null, 2, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
-  3 : [new Espacio(10, 10, personas, null, 3, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
-  4 : [new Espacio(10, 10, personas, null, 4, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)],
-  5 : [new Espacio(10, 10, personas, null, 5, {'pared': new Material(1.35, 'hormigon' ), 'suelo': new Material(1.35, 'hormigon' ) }, entornoCalido)]
-}
 
-let edificio = new Edificio(5, espacios,'choco', calido)
+let edificio = new Edificio(5, espaciosEdificio,'choco', templado)
+let espacio = edificio.buscarEspacio('102')
+var hrs = prompt('ingrese horas: ')
+alert(`horas ${hrs} espacio ${espacio.nombre}`)
+console.log(edificio.verificarHabitabilidad(1))
 
-
-//edificio.verificarHabitabilidad(1)
-edificio.agregarVecinosEspacio(1,6, 5)
+//console.log(edificio)
+// var idEspacio = prompt('ingrese id del espacio:')
+// console.log(idEspacio)
+// let espacio = edificio.buscarEspacio(102)
+// console.log(espacio.constructor.name)
+// if(espacio instanceof Espacio){
+//   var hrs = prompt(`ingrese cantidad de horas que va a ser habitado el espacio ${espacio.nombre}:`)
+// }
+// edificio.verificarHabitabilidad(1)
+//edificio.agregarVecinosEspacio(1,6, 5)
 
 // for( let espacio in edificio.buscarEspacio(1).vecinos){
 //     console.log(espacio)
 // }
-console.log(edificio.buscarEspacio(1))
-console.log(Diccionario)

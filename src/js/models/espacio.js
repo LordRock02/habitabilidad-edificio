@@ -144,14 +144,21 @@ export default class Espacio extends FuenteTermica {
         const cargaTermica = hrs * this.calcularCargaTermica()
         const valorMaximoPermitido = clima.valorMaximo
         const valorMinimoPermitido = clima.valorMinimo
-        console.log(`valorMaximoPermitido: ${valorMaximoPermitido}`)
-        console.log(`valorMinimoPermitido: ${valorMinimoPermitido}`)
+        // console.log(`valorMaximoPermitido: ${valorMaximoPermitido}`)
+        // console.log(`valorMinimoPermitido: ${valorMinimoPermitido}`)
         if (cargaTermica > valorMaximoPermitido) {
-            return "No habitable"
+            return "No habitable:\n" +
+                "1. cambiar de espacio fisico "
+            
         } else if (cargaTermica < valorMinimoPermitido) {
-            return "Podría modificarse para habitar"
+            return "Podría modificarse para habitar:\n" +
+                "1. usar ropa mas ligera\n" +
+                "2. encender aire acondicionado\n" +
+                "3. apagar electrodomesticos que generen mucho calor\n"
+
         } else {
-            return "Habitable"
+            return "Habitable:\n"+
+                "todo bien pa"
         }
     }
 

@@ -2,15 +2,15 @@ import FuenteTermica from "../utils/fuenteTermica.js"
 import Clima from "./clima.js";
 
 export default class Entorno extends FuenteTermica {
-    constructor(_horaDia, _horario = null, _radiacionSolar = null, _numeroVentanas = null, _absorcionVidrio = null, _vecinos = {}) {
+    constructor(_horaDia, _cargaTermicaHoras = null, _radiacionSolar = null, _numeroVentanas = null, _absorcionVidrio = null, _vecinos = {}) {
         super()
         this._radiacionSolar = _radiacionSolar;
         this._numeroVentanas = _numeroVentanas;
         this._absorcionVidrio = _absorcionVidrio;
         this._horaDia = _horaDia
         this._vecinos = {}
-        if (_horario != null) {
-            this._cargaTermicaHoras = _horario
+        if (_cargaTermicaHoras != null) {
+            this._cargaTermicaHoras = _cargaTermicaHoras
         } else {
             this._cargaTermicaHoras = {
                 'amanecer': null,
@@ -58,8 +58,8 @@ export default class Entorno extends FuenteTermica {
         return this._cargaTermicaHoras
     }
 
-    set cargaTermicaHoras(_horario) {
-        this._cargaTermicaHoras = _horario
+    set cargaTermicaHoras(_cargaTermicaHoras) {
+        this._cargaTermicaHoras = _cargaTermicaHoras
     }
 
     calcularCargaTermica() {
