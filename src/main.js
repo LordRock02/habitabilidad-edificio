@@ -60,7 +60,7 @@ let entornoTemplado = new Entorno('media tarde',climaTemplado)
 let entornoCalido = new Entorno('medio dia', climaCalido)
 
 let personas = [
-  new Persona('ligera', 'calido', 'moderada'),
+  /*new Persona('ligera', 'calido', 'moderada'),
   new Persona('abrigada', 'calido', 'sedentaria'),
   new Persona('ligera', 'calido', 'moderada'),
   new Persona('abrigada', 'calido', 'sedentaria'),
@@ -79,15 +79,31 @@ let personas = [
   new Persona('ligera', 'calido', 'moderada'),
   new Persona('abrigada', 'calido', 'ligera'),
   new Persona('ligera', 'calido', 'moderada'),
-  new Persona('abrigada', 'calido', 'intensa')
+  new Persona('abrigada', 'calido', 'intensa')*/
 ]
 
 
 let edificio = new Edificio(5, espaciosEdificio,'choco', templado)
-let espacio = edificio.buscarEspacio('102')
-var hrs = prompt('ingrese horas: ')
+let idEspacio = prompt('ingrese id del espacio: ')
+alert(idEspacio)
+let espacio = edificio.buscarEspacio(idEspacio)
+let hrs = prompt('ingrese horas: ')
 alert(`horas ${hrs} espacio ${espacio.nombre}`)
-console.log(edificio.verificarHabitabilidad(1))
+let personasCant = prompt('ingrese la cantidad de personas que habitaran el espacio:')
+let vestimenta = prompt('ingrese el tipo de vestimenta')
+let actividad = prompt('ingrese el tipo de actividad:')
+for (let i = 0; i < personasCant; i++){
+  let person = new Persona(vestimenta, 'calido',actividad )
+  console.log(i, person._actividad)
+  personas.push(person)
+}
+if(espacio instanceof Espacio){
+  console.log(`calculo habitabilidad ${espacio.nombre}`)
+  espacio.personas = personas
+  console.log(espacio.calcularHabitabilidad(templado, hrs))
+  alert(espacio.calcularHabitabilidad(templado, hrs))
+}
+
 
 //console.log(edificio)
 // var idEspacio = prompt('ingrese id del espacio:')
