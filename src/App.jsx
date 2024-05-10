@@ -1,8 +1,11 @@
 import Scene from './js/components/Scene'
+import { ContextProvider } from './js/utils/global.context'
 function App() {
 
   return (
-    <Scene/>
+    <ContextProvider>
+      <Scene />
+    </ContextProvider>
   )
 }
 

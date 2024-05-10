@@ -1,13 +1,9 @@
 import Espacio from "./espacio.js"
-import Clima from "./clima.js"
 
 export default class Edificio {
 
-    constructor(_numeroPisos, _espacios = {}, _ubicacion = '', _clima = null) {
+    constructor(_espacios = []) {
         this._espacios = _espacios
-        this._numeroPisos = _numeroPisos
-        this._ubicacion = _ubicacion
-        this._clima = _clima
     }
 
     get espacios() {
@@ -18,54 +14,16 @@ export default class Edificio {
         this._espacios = _espacios
     }
 
-    get clima() {
-        return this._clima
-    }
-
-    set clima(_clima) {
-        this._clima = _clima
-    }
-
-    buscarEspacio(id){
-        let espacioEncontrado
-        for(let piso in this._espacios){
-            this._espacios[piso].forEach((espacio) => {
+    buscarEspacio(idEspacio){
+        for(let piso of this._espacios){
+            for(let espacio of this._espacios[piso]){
                 if(espacio instanceof Espacio){
-                    if(espacio.id == id){
-                        espacioEncontrado = espacio
+                    if(espacio.id == idEspacio){
+                        return espacio
                     }
                 }
-            })
-        }
-        return espacioEncontrado
-    }
-
-    agregarVecinosEspacio(id, ...idVecinos){
-        const espacio = this.buscarEspacio(id)
-        if(espacio != null){
-            let vecinos = []
-            for(var i = 0; i<idVecinos.length; i++){
-                vecinos.push(this.buscarEspacio(idVecinos[i]))
             }
-            vecinos.forEach((vecino) => {
-                if(espacio instanceof Espacio){
-                    espacio.agregarVecino(vecino)
-                }
-            })
         }
-
-    }
-
-    verificarHabitabilidad(hrs) {//tiempo el cual el espacio va a ser habitado
-        console.log(this._espacios)
-        for (let piso in this._espacios) {
-            this._espacios[piso].forEach((espacio) => {
-                let estadoHabitabilidad
-                if (espacio instanceof Espacio) {    
-                    estadoHabitabilidad = espacio.calcularHabitabilidad(this._clima, hrs)
-                    console.log(`Espacio ${espacio.nombre}: ${estadoHabitabilidad} carga termica: ${espacio.calcularCargaTermica()}`)
-                }
-            })
-        }
+        return null
     }
 }

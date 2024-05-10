@@ -1,15 +1,28 @@
 import { useEffect, useRef } from "react"
 import * as THREE from 'three'
 import { OrbitControls } from "three/examples/jsm/Addons.js"
+import { useEdificio } from "../utils/global.context"
+import Edificio from "../models/edificio"
+import Espacio from "../models/espacio"
+
 
 
 const Scene = () => {
+    const edificio = useEdificio()
     const mountRef = useRef(null)
+
+    function createTubeBetweenPoints(startPoint, endPoint, radius, color) {
+        const path = new THREE.LineCurve3(startPoint, endPoint);
+        const tubeGeometry = new THREE.TubeGeometry(path, 64, radius, 8, false);
+        const edgeMaterial = new THREE.MeshBasicMaterial({ color: color });
+        const tubeMesh = new THREE.Mesh(tubeGeometry, edgeMaterial);
+        return tubeMesh;
+    }
     useEffect(() => {
         const currentMount = mountRef.current
         const scene = new THREE.Scene()
         const camera = new THREE.PerspectiveCamera(25, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000)
-        camera.position.z = 4
+        camera.position.set(0, 5, 20)
         scene.add(camera)
         const renderer = new THREE.WebGLRenderer()
         renderer.setSize(currentMount.clientWidth, currentMount.clientHeight)
@@ -18,46 +31,58 @@ const Scene = () => {
         const controls = new OrbitControls(camera, renderer.domElement)
         controls.enableDamping = true
 
+        //RESIZE
+        const resize = () => {
+            renderer.setSize(currentMount.clientWidth, currentMount.clientHeight)
+            camera.aspect = currentMount.clientWidth / currentMount.clientHeight
+            camera.updateProjectionMatrix()
+        }
+
+        window.addEventListener('resize', resize)
+
+        // PARAMETROS DE LA ESFERA
+
         const geometry = new THREE.SphereGeometry(0.2, 32, 32)
         const material = new THREE.MeshNormalMaterial({ flatShading: true })
 
+        const aristas = []
+        const nodos = {}
 
-        const node1 = new THREE.Mesh(geometry, material);
-        const node2 = new THREE.Mesh(geometry, material);
-        const node3 = new THREE.Mesh(geometry, material);
-        const node4 = new THREE.Mesh(geometry, material);
+        if (edificio instanceof Edificio) {
+            for (let piso in edificio.espacios) {
+                for (let espacio of edificio.espacios[piso]) {
+                    if (espacio instanceof Espacio) {
+                        const nodo = new THREE.Mesh(geometry, material)
+                        nodo.position.set(espacio.x, espacio.y, espacio.z)
+                        nodos[espacio.id] = nodo
+                        scene.add(nodo)
+                        for (let vecino of espacio.vecinos) {
+                            const arista = [espacio.id, vecino]
+                            if (!aristas.some(arista => arista[0] === vecino && arista[1] === espacio.id)) {
+                                aristas.push(arista)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // PARAMETROS DE LA ARISTA
+
+        const radius = 0.05; // Grosor del tubo
+        const color = 0x00ff00;
+
+        console.log(aristas)
+        aristas.forEach(arista => {
+            const nodo1 = nodos[arista[0]]
+            const nodo2 = nodos[arista[1]]
+            if (nodo1 && nodo2) {
+                const edgeTube = createTubeBetweenPoints(nodo1.position, nodo2.position, radius, color);
+                scene.add(edgeTube)
+            }
+        });
 
 
-        node1.position.set(-1, 1, 0);
-        node2.position.set(1, 1, 0);
-        node3.position.set(-1, -1, 0);
-        node4.position.set(1, -1, 0);
-        scene.add(node1);
-        scene.add(node2);
-        scene.add(node3);
-        scene.add(node4);
-        // Crear aristas
-        const edgeMaterial = new THREE.LineBasicMaterial({ color: 0x00ff00 });
-
-        // Arista entre nodo1 y nodo2
-        const edge1Geometry = new THREE.BufferGeometry().setFromPoints([node1.position, node2.position]);
-        const edge1 = new THREE.Line(edge1Geometry, edgeMaterial);
-        scene.add(edge1);
-
-        // Arista entre nodo2 y nodo4
-        const edge2Geometry = new THREE.BufferGeometry().setFromPoints([node2.position, node4.position]);
-        const edge2 = new THREE.Line(edge2Geometry, edgeMaterial);
-        scene.add(edge2);
-
-        // Arista entre nodo4 y nodo3
-        const edge3Geometry = new THREE.BufferGeometry().setFromPoints([node4.position, node3.position]);
-        const edge3 = new THREE.Line(edge3Geometry, edgeMaterial);
-        scene.add(edge3);
-
-        // Arista entre nodo3 y nodo1
-        const edge4Geometry = new THREE.BufferGeometry().setFromPoints([node3.position, node1.position]);
-        const edge4 = new THREE.Line(edge4Geometry, edgeMaterial);
-        scene.add(edge4);
         const animate = () => {
             controls.update()
             renderer.render(scene, camera)
@@ -69,7 +94,7 @@ const Scene = () => {
         return () => {
             currentMount.removeChild(renderer.domElement)
         }
-    }, [])
+    }, [edificio])
     return (
         <div className="contenedor3D" style={{ width: '100%', height: '100vh' }} ref={mountRef}>
         </div>
