@@ -16,12 +16,14 @@ const espacios = []
 for(let _piso of _espacios){
     const piso = []
     for(let _espacio of _piso){
-        piso.push(new Espacio(_espacio.id, _espacio.vecinos, _espacio.x, _espacio.y, _espacio.z))
+        piso.push(new Espacio(_espacio.id, _espacio.vecinos, _espacio.x, _espacio.y, _espacio.z, _espacio.materialPiso, _espacio.materialPared))
     }
     espacios.push(piso)
 }
 
 const edificio = new Edificio(espacios)
+
+console.log(edificio)
 
 export function ContextProvider({children}) {
     

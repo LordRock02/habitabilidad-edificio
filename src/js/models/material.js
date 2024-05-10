@@ -1,9 +1,8 @@
 export default class Material {
-    constructor(_coeficiente, _nombre, _tipo = null, _id = null) {
+    constructor(_coeficiente = 0, _id = '', _nombre = '') {
         this._id = _id;
-        this._nombre = _nombre;
-        this._tipo = _tipo;
         this._coeficiente = _coeficiente;
+        this._nombre = _nombre
     }
 
     get id() {
@@ -15,19 +14,11 @@ export default class Material {
     }
 
     get nombre() {
-        return this._nombre;
+        return this._nombre
     }
 
     set nombre(_nombre) {
-        this._nombre = _nombre;
-    }
-
-    get tipo() {
-        return this._tipo;
-    }
-
-    set tipo(_tipo) {
-        this._tipo = _tipo;
+        this._nombre = _nombre
     }
 
     get coeficiente() {

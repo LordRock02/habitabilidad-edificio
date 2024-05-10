@@ -9,9 +9,11 @@
             ],
             "x": -3,
             "y": 0,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
-        {
+        { 
             "id": 102,
             "vecinos": [
                 101,
@@ -20,7 +22,9 @@
             ],
             "x": -3,
             "y": 0,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 103,
@@ -33,7 +37,9 @@
             ],
             "x": -2,
             "y": 0,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 104,
@@ -47,7 +53,9 @@
             ],
             "x": -2,
             "y": 0,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 105,
@@ -58,7 +66,9 @@
             ],
             "x": 3,
             "y": 0,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 106,
@@ -69,7 +79,9 @@
             ],
             "x": 3,
             "y": 0,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 107,
@@ -81,7 +93,9 @@
             ],
             "x": 2,
             "y": 0,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 108,
@@ -94,7 +108,9 @@
             ],
             "x": 2,
             "y": 0,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "pasillo1",
@@ -112,7 +128,9 @@
             ],
             "x": 0,
             "y": 0,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "ascensor1",
@@ -124,7 +142,9 @@
             ],
             "x": 0,
             "y": 0,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "recepcion",
@@ -153,7 +173,9 @@
             ],
             "x": -2,
             "y": 1,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 202,
@@ -166,7 +188,9 @@
             ],
             "x": -2,
             "y": 1,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 203,
@@ -179,7 +203,9 @@
             ],
             "x": -2,
             "y": 1,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 204,
@@ -192,7 +218,9 @@
             ],
             "x": -1,
             "y": 1,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 205,
@@ -205,7 +233,9 @@
             ],
             "x": 0,
             "y": 1,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 206,
@@ -218,7 +248,9 @@
             ],
             "x": 1,
             "y": 1,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 207,
@@ -231,7 +263,9 @@
             ],
             "x": 2,
             "y": 1,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 208,
@@ -244,7 +278,9 @@
             ],
             "x": 2,
             "y": 1,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 209,
@@ -257,7 +293,9 @@
             ],
             "x": 2,
             "y": 1,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "pasillo2",
@@ -277,7 +315,9 @@
             ],
             "x": 0,
             "y": 1,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "ascensor2",
@@ -305,7 +345,9 @@
             ],
             "x": -2,
             "y": 2,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 302,
@@ -318,7 +360,9 @@
             ],
             "x": -2,
             "y": 2,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 303,
@@ -331,7 +375,9 @@
             ],
             "x": -2,
             "y": 2,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 304,
@@ -344,7 +390,9 @@
             ],
             "x": -1,
             "y": 2,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 305,
@@ -357,7 +405,9 @@
             ],
             "x": 0,
             "y": 2,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 306,
@@ -370,7 +420,9 @@
             ],
             "x": 1,
             "y": 2,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 307,
@@ -383,7 +435,9 @@
             ],
             "x": 2,
             "y": 2,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 308,
@@ -396,7 +450,9 @@
             ],
             "x": 2,
             "y": 2,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 309,
@@ -409,7 +465,9 @@
             ],
             "x": 2,
             "y": 2,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "pasillo3",
@@ -429,7 +487,9 @@
             ],
             "x": 0,
             "y": 2,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "ascensor3",
@@ -457,7 +517,9 @@
             ],
             "x": -2,
             "y": 3,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 402,
@@ -470,7 +532,9 @@
             ],
             "x": -2,
             "y": 3,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 403,
@@ -483,7 +547,9 @@
             ],
             "x": -2,
             "y": 3,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 404,
@@ -496,7 +562,9 @@
             ],
             "x": -1,
             "y": 3,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 405,
@@ -509,7 +577,9 @@
             ],
             "x": 0,
             "y": 3,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 406,
@@ -522,7 +592,9 @@
             ],
             "x": 1,
             "y": 3,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 407,
@@ -535,7 +607,9 @@
             ],
             "x": 2,
             "y": 3,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 408,
@@ -548,7 +622,9 @@
             ],
             "x": 2,
             "y": 3,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 409,
@@ -561,7 +637,9 @@
             ],
             "x": 2,
             "y": 3,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "pasillo4",
@@ -581,7 +659,9 @@
             ],
             "x": 0,
             "y": 3,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "ascensor4",
@@ -609,7 +689,9 @@
             ],
             "x": -2,
             "y": 4,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 502,
@@ -622,7 +704,9 @@
             ],
             "x": -2,
             "y": 4,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 503,
@@ -635,7 +719,9 @@
             ],
             "x": -2,
             "y": 4,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 504,
@@ -648,7 +734,9 @@
             ],
             "x": -1,
             "y": 4,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 505,
@@ -661,7 +749,9 @@
             ],
             "x": 0,
             "y": 4,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 506,
@@ -674,7 +764,9 @@
             ],
             "x": 1,
             "y": 4,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 507,
@@ -687,7 +779,9 @@
             ],
             "x": 2,
             "y": 4,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 508,
@@ -700,7 +794,9 @@
             ],
             "x": 2,
             "y": 4,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 509,
@@ -713,7 +809,9 @@
             ],
             "x": 2,
             "y": 4,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "pasillo5",
@@ -733,7 +831,9 @@
             ],
             "x": 0,
             "y": 4,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "ascensor5",
@@ -761,7 +861,9 @@
             ],
             "x": -2,
             "y": 5,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 602,
@@ -774,7 +876,9 @@
             ],
             "x": -2,
             "y": 5,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 603,
@@ -787,7 +891,9 @@
             ],
             "x": -2,
             "y": 5,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 604,
@@ -800,7 +906,9 @@
             ],
             "x": -1,
             "y": 5,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 605,
@@ -813,7 +921,9 @@
             ],
             "x": 0,
             "y": 5,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 606,
@@ -826,7 +936,9 @@
             ],
             "x": 1,
             "y": 5,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 607,
@@ -839,7 +951,9 @@
             ],
             "x": 2,
             "y": 5,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 608,
@@ -852,7 +966,9 @@
             ],
             "x": 2,
             "y": 5,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 609,
@@ -865,7 +981,9 @@
             ],
             "x": 2,
             "y": 5,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "pasillo6",
@@ -885,7 +1003,9 @@
             ],
             "x": 0,
             "y": 5,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "ascensor6",
@@ -912,7 +1032,9 @@
             ],
             "x": -2,
             "y": 6,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 702,
@@ -924,7 +1046,9 @@
             ],
             "x": -2,
             "y": 6,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 703,
@@ -936,7 +1060,9 @@
             ],
             "x": -2,
             "y": 6,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 704,
@@ -948,7 +1074,9 @@
             ],
             "x": -1,
             "y": 6,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 705,
@@ -960,7 +1088,9 @@
             ],
             "x": 0,
             "y": 6,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 706,
@@ -972,7 +1102,9 @@
             ],
             "x": 1,
             "y": 6,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 707,
@@ -984,7 +1116,9 @@
             ],
             "x": 2,
             "y": 6,
-            "z": 2
+            "z": 2,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 708,
@@ -996,7 +1130,9 @@
             ],
             "x": 2,
             "y": 6,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": 709,
@@ -1009,7 +1145,9 @@
             ],
             "x": 2,
             "y": 6,
-            "z": 0
+            "z": 0,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "pasillo7",
@@ -1029,7 +1167,9 @@
             ],
             "x": 0,
             "y": 6,
-            "z": 1
+            "z": 1,
+            "materialPiso": "MATERIAL1",
+            "materialPared": "MATERIAL1"
         },
         {
             "id": "ascensor7",
@@ -1064,6 +1204,6 @@
             "x": 0,
             "y": 7,
             "z": 1
-        }  
+        }
     ]
 ]

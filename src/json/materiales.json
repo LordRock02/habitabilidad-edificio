@@ -1,0 +1,22 @@
+{
+    "MATERIAL1": {
+        "nombre": "hormigon",
+        "coeficiente": 1.35
+    },
+    "MATERIAL2": {
+        "nombre": "madera",
+        "coeficiente": 0.5
+    },
+    "MATERIAL3": {
+        "nombre": "acero",
+        "coeficiente": 2.1
+    },
+    "MATERIAL4": {
+        "nombre": "vidrio",
+        "coeficiente": 0.8
+    },
+    "MATERIAL5": {
+        "nombre": "aluminio",
+        "coeficiente": 0.9
+    }
+}

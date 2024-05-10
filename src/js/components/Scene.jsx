@@ -22,8 +22,10 @@ const Scene = () => {
         const currentMount = mountRef.current
         const scene = new THREE.Scene()
         const camera = new THREE.PerspectiveCamera(25, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000)
-        camera.position.set(0, 5, 20)
+        const group = new THREE.Group()
+        camera.position.set(0, 0, 20)
         scene.add(camera)
+        scene.add(group)
         const renderer = new THREE.WebGLRenderer()
         renderer.setSize(currentMount.clientWidth, currentMount.clientHeight)
         currentMount.appendChild(renderer.domElement)
@@ -37,7 +39,6 @@ const Scene = () => {
             camera.aspect = currentMount.clientWidth / currentMount.clientHeight
             camera.updateProjectionMatrix()
         }
-
         window.addEventListener('resize', resize)
 
         // PARAMETROS DE LA ESFERA
@@ -55,7 +56,7 @@ const Scene = () => {
                         const nodo = new THREE.Mesh(geometry, material)
                         nodo.position.set(espacio.x, espacio.y, espacio.z)
                         nodos[espacio.id] = nodo
-                        scene.add(nodo)
+                        group.add(nodo)
                         for (let vecino of espacio.vecinos) {
                             const arista = [espacio.id, vecino]
                             if (!aristas.some(arista => arista[0] === vecino && arista[1] === espacio.id)) {
@@ -69,7 +70,7 @@ const Scene = () => {
 
         // PARAMETROS DE LA ARISTA
 
-        const radius = 0.05; // Grosor del tubo
+        const radius = 0.025; // Grosor del tubo
         const color = 0x00ff00;
 
         console.log(aristas)
@@ -78,13 +79,15 @@ const Scene = () => {
             const nodo2 = nodos[arista[1]]
             if (nodo1 && nodo2) {
                 const edgeTube = createTubeBetweenPoints(nodo1.position, nodo2.position, radius, color);
-                scene.add(edgeTube)
+                group.add(edgeTube)
             }
         });
 
-
+        group.position.y= -3.5
         const animate = () => {
             controls.update()
+            // group.rotation.x += 0.01
+            group.rotation.y += 0.001
             renderer.render(scene, camera)
             requestAnimationFrame(animate)
         }
