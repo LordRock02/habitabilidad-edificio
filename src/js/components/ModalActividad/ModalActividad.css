@@ -1,0 +1,22 @@
+.custom-modal-size .modal-dialog {
+  max-width: 80%; /* Adjust as needed */
+}
+.containerEspacio {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.containerEspacio div{
+  display: flex;
+  gap: 20px;
+}
+.containerEspacio div label {
+  margin-bottom: 5px;
+}
+.containerEspacio div input,
+.containerEspacio div select {
+  padding: 8px;
+  border-radius: 15px;
+
+}

@@ -1,0 +1,28 @@
+.contenedor3D {
+    position: absolute;
+    display: inline-block;
+    background-color: black;
+    z-index: 1;
+}
+.contenedor3D .toolsContainer {
+    height: 320px;
+    width: 65px;
+    background-color: aliceblue;
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+}
+.option{
+    font-size: 2.5rem;
+    color: rgb(67, 67, 67);  
+    transition-duration: 0.1s;
+}
+.option:hover{
+    color:rgb(134, 23, 225);
+}

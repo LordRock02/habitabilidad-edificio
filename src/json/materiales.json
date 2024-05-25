@@ -1,22 +1,27 @@
 {
     "MATERIAL1": {
         "nombre": "hormigon",
-        "coeficiente": 1.35
+        "coeficiente": 1.8,
+        "coeficienteAbsorcionSolar": 0.35
     },
     "MATERIAL2": {
         "nombre": "madera",
-        "coeficiente": 0.5
+        "coeficiente": 0.12,
+        "coeficienteAbsorcionSolar": 0.1
     },
     "MATERIAL3": {
         "nombre": "acero",
-        "coeficiente": 2.1
+        "coeficiente": 50,
+        "coeficienteAbsorcionSolar": 0.75
     },
     "MATERIAL4": {
         "nombre": "vidrio",
-        "coeficiente": 0.8
+        "coeficiente": 1.0,
+        "coeficienteAbsorcionSolar": 0.3
     },
     "MATERIAL5": {
         "nombre": "aluminio",
-        "coeficiente": 0.9
+        "coeficiente": 205,
+        "coeficienteAbsorcionSolar": 0.4
     }
 }

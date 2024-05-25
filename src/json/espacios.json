@@ -2,6 +2,7 @@
     [
         {
             "id": 101,
+            "tipo": "LOCAL",
             "vecinos": [
                 102,
                 103,
@@ -10,11 +11,14 @@
             "x": -3,
             "y": 0,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
-        { 
+        {
             "id": 102,
+            "tipo": "LOCAL",
             "vecinos": [
                 101,
                 104,
@@ -23,11 +27,14 @@
             "x": -3,
             "y": 0,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 103,
+            "tipo": "LOCAL",
             "vecinos": [
                 101,
                 104,
@@ -38,11 +45,14 @@
             "x": -2,
             "y": 0,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 104,
+            "tipo": "LOCAL",
             "vecinos": [
                 103,
                 102,
@@ -54,11 +64,14 @@
             "x": -2,
             "y": 0,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 105,
+            "tipo": "LOCAL",
             "vecinos": [
                 106,
                 107,
@@ -67,11 +80,14 @@
             "x": 3,
             "y": 0,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 106,
+            "tipo": "LOCAL",
             "vecinos": [
                 105,
                 108,
@@ -80,11 +96,14 @@
             "x": 3,
             "y": 0,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 107,
+            "tipo": "LOCAL",
             "vecinos": [
                 105,
                 108,
@@ -94,11 +113,14 @@
             "x": 2,
             "y": 0,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 108,
+            "tipo": "LOCAL",
             "vecinos": [
                 107,
                 106,
@@ -109,11 +131,14 @@
             "x": 2,
             "y": 0,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "pasillo1",
+            "tipo": "PASILLO",
             "vecinos": [
                 101,
                 102,
@@ -129,11 +154,14 @@
             "x": 0,
             "y": 0,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "ascensor1",
+            "tipo": "ASCENSOR",
             "vecinos": [
                 103,
                 107,
@@ -143,11 +171,14 @@
             "x": 0,
             "y": 0,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 1,
+            "ancho": 1,
+            "alto": 3
         },
         {
             "id": "recepcion",
+            "tipo": "LOCAL",
             "vecinos": [
                 204,
                 205,
@@ -158,12 +189,17 @@
             ],
             "x": 0,
             "y": 0,
-            "z": 2
+            "z": 2,
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         }
     ],
     [
         {
             "id": 201,
+            "tipo": "LOCAL",
             "vecinos": [
                 202,
                 103,
@@ -174,11 +210,14 @@
             "x": -2,
             "y": 1,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 202,
+            "tipo": "LOCAL",
             "vecinos": [
                 201,
                 104,
@@ -189,11 +228,14 @@
             "x": -2,
             "y": 1,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 203,
+            "tipo": "LOCAL",
             "vecinos": [
                 202,
                 204,
@@ -204,11 +246,14 @@
             "x": -2,
             "y": 1,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 204,
+            "tipo": "LOCAL",
             "vecinos": [
                 203,
                 205,
@@ -219,11 +264,14 @@
             "x": -1,
             "y": 1,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 205,
+            "tipo": "LOCAL",
             "vecinos": [
                 204,
                 206,
@@ -234,11 +282,14 @@
             "x": 0,
             "y": 1,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 206,
+            "tipo": "LOCAL",
             "vecinos": [
                 205,
                 207,
@@ -249,11 +300,14 @@
             "x": 1,
             "y": 1,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 207,
+            "tipo": "LOCAL",
             "vecinos": [
                 206,
                 208,
@@ -264,11 +318,14 @@
             "x": 2,
             "y": 1,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 208,
+            "tipo": "LOCAL",
             "vecinos": [
                 207,
                 209,
@@ -279,11 +336,14 @@
             "x": 2,
             "y": 1,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 209,
+            "tipo": "LOCAL",
             "vecinos": [
                 208,
                 107,
@@ -294,11 +354,14 @@
             "x": 2,
             "y": 1,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "pasillo2",
+            "tipo": "PASILLO",
             "vecinos": [
                 201,
                 202,
@@ -316,11 +379,14 @@
             "x": 0,
             "y": 1,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "ascensor2",
+            "tipo": "ASCENSOR",
             "vecinos": [
                 201,
                 209,
@@ -330,12 +396,17 @@
             ],
             "x": 0,
             "y": 1,
-            "z": 0
+            "z": 0,
+            "material": "MATERIAL1",
+            "longitud": 1,
+            "ancho": 1,
+            "alto": 3
         }
     ],
     [
         {
             "id": 301,
+            "tipo": "LOCAL",
             "vecinos": [
                 302,
                 201,
@@ -346,11 +417,14 @@
             "x": -2,
             "y": 2,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 302,
+            "tipo": "LOCAL",
             "vecinos": [
                 301,
                 303,
@@ -361,11 +435,14 @@
             "x": -2,
             "y": 2,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 303,
+            "tipo": "LOCAL",
             "vecinos": [
                 302,
                 304,
@@ -376,11 +453,14 @@
             "x": -2,
             "y": 2,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 304,
+            "tipo": "LOCAL",
             "vecinos": [
                 303,
                 305,
@@ -391,11 +471,14 @@
             "x": -1,
             "y": 2,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 305,
+            "tipo": "LOCAL",
             "vecinos": [
                 304,
                 306,
@@ -406,11 +489,14 @@
             "x": 0,
             "y": 2,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 306,
+            "tipo": "LOCAL",
             "vecinos": [
                 305,
                 307,
@@ -421,11 +507,14 @@
             "x": 1,
             "y": 2,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 307,
+            "tipo": "LOCAL",
             "vecinos": [
                 306,
                 308,
@@ -436,11 +525,14 @@
             "x": 2,
             "y": 2,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 308,
+            "tipo": "LOCAL",
             "vecinos": [
                 307,
                 309,
@@ -451,11 +543,14 @@
             "x": 2,
             "y": 2,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 309,
+            "tipo": "LOCAL",
             "vecinos": [
                 308,
                 209,
@@ -466,11 +561,14 @@
             "x": 2,
             "y": 2,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "pasillo3",
+            "tipo": "PASILLO",
             "vecinos": [
                 301,
                 302,
@@ -488,11 +586,14 @@
             "x": 0,
             "y": 2,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "ascensor3",
+            "tipo": "ASCENSOR",
             "vecinos": [
                 301,
                 309,
@@ -502,12 +603,17 @@
             ],
             "x": 0,
             "y": 2,
-            "z": 0
+            "z": 0,
+            "material": "MATERIAL1",
+            "longitud": 1,
+            "ancho": 1,
+            "alto": 3
         }
     ],
     [
         {
             "id": 401,
+            "tipo": "LOCAL",
             "vecinos": [
                 402,
                 301,
@@ -518,11 +624,14 @@
             "x": -2,
             "y": 3,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 402,
+            "tipo": "LOCAL",
             "vecinos": [
                 401,
                 403,
@@ -533,26 +642,32 @@
             "x": -2,
             "y": 3,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 403,
+            "tipo": "LOCAL",
             "vecinos": [
                 402,
-                404,
+                404, 
                 303,
-                403,
+                503,
                 "pasillo4"
             ],
             "x": -2,
             "y": 3,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 404,
+            "tipo": "LOCAL",
             "vecinos": [
                 403,
                 405,
@@ -563,11 +678,14 @@
             "x": -1,
             "y": 3,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 405,
+            "tipo": "LOCAL",
             "vecinos": [
                 404,
                 406,
@@ -578,11 +696,14 @@
             "x": 0,
             "y": 3,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 406,
+            "tipo": "LOCAL",
             "vecinos": [
                 405,
                 407,
@@ -593,11 +714,14 @@
             "x": 1,
             "y": 3,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 407,
+            "tipo": "LOCAL",
             "vecinos": [
                 406,
                 408,
@@ -608,11 +732,14 @@
             "x": 2,
             "y": 3,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 408,
+            "tipo": "LOCAL",
             "vecinos": [
                 407,
                 409,
@@ -623,11 +750,14 @@
             "x": 2,
             "y": 3,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 409,
+            "tipo": "LOCAL",
             "vecinos": [
                 408,
                 309,
@@ -638,11 +768,14 @@
             "x": 2,
             "y": 3,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "pasillo4",
+            "tipo": "PASILLO",
             "vecinos": [
                 401,
                 402,
@@ -660,11 +793,14 @@
             "x": 0,
             "y": 3,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "ascensor4",
+            "tipo": "ASCENSOR",
             "vecinos": [
                 401,
                 409,
@@ -674,12 +810,17 @@
             ],
             "x": 0,
             "y": 3,
-            "z": 0
+            "z": 0,
+            "material": "MATERIAL1",
+            "longitud": 1,
+            "ancho": 1,
+            "alto": 3
         }
     ],
     [
         {
             "id": 501,
+            "tipo": "LOCAL",
             "vecinos": [
                 502,
                 401,
@@ -690,11 +831,14 @@
             "x": -2,
             "y": 4,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 502,
+            "tipo": "LOCAL",
             "vecinos": [
                 501,
                 503,
@@ -705,11 +849,14 @@
             "x": -2,
             "y": 4,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 503,
+            "tipo": "LOCAL",
             "vecinos": [
                 502,
                 504,
@@ -720,11 +867,14 @@
             "x": -2,
             "y": 4,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 504,
+            "tipo": "LOCAL",
             "vecinos": [
                 503,
                 505,
@@ -735,11 +885,14 @@
             "x": -1,
             "y": 4,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 505,
+            "tipo": "LOCAL",
             "vecinos": [
                 504,
                 506,
@@ -750,11 +903,14 @@
             "x": 0,
             "y": 4,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 506,
+            "tipo": "LOCAL",
             "vecinos": [
                 505,
                 507,
@@ -765,11 +921,14 @@
             "x": 1,
             "y": 4,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 507,
+            "tipo": "LOCAL",
             "vecinos": [
                 506,
                 508,
@@ -780,11 +939,14 @@
             "x": 2,
             "y": 4,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 508,
+            "tipo": "LOCAL",
             "vecinos": [
                 507,
                 509,
@@ -795,11 +957,14 @@
             "x": 2,
             "y": 4,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 509,
+            "tipo": "LOCAL",
             "vecinos": [
                 508,
                 409,
@@ -810,11 +975,14 @@
             "x": 2,
             "y": 4,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "pasillo5",
+            "tipo": "PASILLO",
             "vecinos": [
                 501,
                 502,
@@ -832,11 +1000,14 @@
             "x": 0,
             "y": 4,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "ascensor5",
+            "tipo": "ASCENSOR",
             "vecinos": [
                 501,
                 509,
@@ -846,12 +1017,17 @@
             ],
             "x": 0,
             "y": 4,
-            "z": 0
+            "z": 0,
+            "material": "MATERIAL1",
+            "longitud": 1,
+            "ancho": 1,
+            "alto": 3
         }
     ],
     [
         {
             "id": 601,
+            "tipo": "LOCAL",
             "vecinos": [
                 602,
                 501,
@@ -862,11 +1038,14 @@
             "x": -2,
             "y": 5,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 602,
+            "tipo": "LOCAL",
             "vecinos": [
                 601,
                 603,
@@ -877,11 +1056,14 @@
             "x": -2,
             "y": 5,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 603,
+            "tipo": "LOCAL",
             "vecinos": [
                 602,
                 604,
@@ -892,11 +1074,14 @@
             "x": -2,
             "y": 5,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 604,
+            "tipo": "LOCAL",
             "vecinos": [
                 603,
                 605,
@@ -907,26 +1092,32 @@
             "x": -1,
             "y": 5,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 605,
+            "tipo": "LOCAL",
             "vecinos": [
                 604,
                 606,
                 505,
-                905,
+                705,
                 "pasillo6"
             ],
             "x": 0,
             "y": 5,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 606,
+            "tipo": "LOCAL",
             "vecinos": [
                 605,
                 607,
@@ -937,11 +1128,14 @@
             "x": 1,
             "y": 5,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 607,
+            "tipo": "LOCAL",
             "vecinos": [
                 606,
                 608,
@@ -952,11 +1146,14 @@
             "x": 2,
             "y": 5,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 608,
+            "tipo": "LOCAL",
             "vecinos": [
                 607,
                 609,
@@ -967,11 +1164,14 @@
             "x": 2,
             "y": 5,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 609,
+            "tipo": "LOCAL",
             "vecinos": [
                 608,
                 709,
@@ -982,11 +1182,14 @@
             "x": 2,
             "y": 5,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "pasillo6",
+            "tipo": "PASILLO",
             "vecinos": [
                 601,
                 602,
@@ -1004,11 +1207,14 @@
             "x": 0,
             "y": 5,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "ascensor6",
+            "tipo": "ASCENSOR",
             "vecinos": [
                 601,
                 609,
@@ -1018,12 +1224,17 @@
             ],
             "x": 0,
             "y": 5,
-            "z": 0
+            "z": 0,
+            "material": "MATERIAL1",
+            "longitud": 1,
+            "ancho": 1,
+            "alto": 3
         }
     ],
     [
         {
             "id": 701,
+            "tipo": "LOCAL",
             "vecinos": [
                 702,
                 601,
@@ -1033,11 +1244,14 @@
             "x": -2,
             "y": 6,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 702,
+            "tipo": "LOCAL",
             "vecinos": [
                 701,
                 703,
@@ -1047,11 +1261,14 @@
             "x": -2,
             "y": 6,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 703,
+            "tipo": "LOCAL",
             "vecinos": [
                 702,
                 704,
@@ -1061,11 +1278,14 @@
             "x": -2,
             "y": 6,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 704,
+            "tipo": "LOCAL",
             "vecinos": [
                 703,
                 705,
@@ -1075,11 +1295,14 @@
             "x": -1,
             "y": 6,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 705,
+            "tipo": "LOCAL",
             "vecinos": [
                 704,
                 706,
@@ -1089,11 +1312,14 @@
             "x": 0,
             "y": 6,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 706,
+            "tipo": "LOCAL",
             "vecinos": [
                 705,
                 707,
@@ -1103,11 +1329,14 @@
             "x": 1,
             "y": 6,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 707,
+            "tipo": "LOCAL",
             "vecinos": [
                 706,
                 708,
@@ -1117,11 +1346,14 @@
             "x": 2,
             "y": 6,
             "z": 2,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 708,
+            "tipo": "LOCAL",
             "vecinos": [
                 707,
                 709,
@@ -1131,11 +1363,14 @@
             "x": 2,
             "y": 6,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": 709,
+            "tipo": "LOCAL",
             "vecinos": [
                 708,
                 709,
@@ -1146,11 +1381,14 @@
             "x": 2,
             "y": 6,
             "z": 0,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "pasillo7",
+            "tipo": "PASILLO",
             "vecinos": [
                 701,
                 702,
@@ -1162,17 +1400,19 @@
                 708,
                 709,
                 "pasillo6",
-                "pasillo8",
                 "ascensor7"
             ],
             "x": 0,
             "y": 6,
             "z": 1,
-            "materialPiso": "MATERIAL1",
-            "materialPared": "MATERIAL1"
+            "material": "MATERIAL1",
+            "longitud": 20,
+            "ancho": 10,
+            "alto": 3
         },
         {
             "id": "ascensor7",
+            "tipo": "ASCENSOR",
             "vecinos": [
                 701,
                 709,
@@ -1182,12 +1422,17 @@
             ],
             "x": 0,
             "y": 6,
-            "z": 0
+            "z": 0,
+            "material": "MATERIAL1",
+            "longitud": 1,
+            "ancho": 1,
+            "alto": 3
         }
     ],
     [
         {
             "id": "terraza",
+            "tipo": "LOCAL",
             "vecinos": [
                 701,
                 702,
@@ -1203,7 +1448,11 @@
             ],
             "x": 0,
             "y": 7,
-            "z": 1
+            "z": 1,
+            "material": "MATERIAL1",
+            "longitud": 60,
+            "ancho": 50,
+            "alto": 3
         }
     ]
 ]

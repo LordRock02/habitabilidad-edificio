@@ -1,0 +1,44 @@
+[
+    {
+        "ACTIVIDAD": "sedentario",
+        "MET": 1.0,
+        "TEMPERATURA_MINIMA": 18,
+        "TEMPERATURA_MEDIA": 23,
+        "TEMPERATURA_MAXIMA": 28
+    },
+    {
+        "ACTIVIDAD": "comer",
+        "MET": 1.5,
+        "TEMPERATURA_MINIMA": 20,
+        "TEMPERATURA_MEDIA": 25,
+        "TEMPERATURA_MAXIMA": 30
+    },
+    {
+        "ACTIVIDAD": "trabajoOficina",
+        "MET": 1.2,
+        "TEMPERATURA_MINIMA": 19,
+        "TEMPERATURA_MEDIA": 24,
+        "TEMPERATURA_MAXIMA": 29
+    },
+    {
+        "ACTIVIDAD": "trabajoModerado",
+        "MET": 1.6,
+        "TEMPERATURA_MINIMA": 20,
+        "TEMPERATURA_MEDIA": 25,
+        "TEMPERATURA_MAXIMA": 30
+    },
+    {
+        "ACTIVIDAD": "ejercicio",
+        "MET": 2.0,
+        "TEMPERATURA_MINIMA": 17,
+        "TEMPERATURA_MEDIA": 22,
+        "TEMPERATURA_MAXIMA": 27
+    },
+    {
+        "ACTIVIDAD": "ejercicioIntenso",
+        "MET": 2.5,
+        "TEMPERATURA_MINIMA": 16,
+        "TEMPERATURA_MEDIA": 21,
+        "TEMPERATURA_MAXIMA": 26
+    }
+]

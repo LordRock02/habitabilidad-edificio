@@ -1,8 +1,9 @@
 export default class Material {
-    constructor(_coeficiente = 0, _id = '', _nombre = '') {
+    constructor(_coeficiente = 0, _id = '', _nombre = '', _coeficienteAbsorcionSolar = 0) {
         this._id = _id;
         this._coeficiente = _coeficiente;
         this._nombre = _nombre
+        this._coeficienteAbsorcionSolar = _coeficienteAbsorcionSolar
     }
 
     get id() {
@@ -27,6 +28,14 @@ export default class Material {
 
     set coeficiente(_coeficiente) {
         this._coeficiente = _coeficiente;
+    }
+
+    get coeficienteAbsorcionSolar() {
+        return this._coeficienteAbsorcionSolar
+    }
+
+    set coeficienteAbsorcionSolar(_coeficienteAbsorcionSolar) {
+        this._coeficienteAbsorcionSolar = _coeficienteAbsorcionSolar
     }
 
 }

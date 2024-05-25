@@ -1,76 +1,24 @@
 import FuenteTermica from "../utils/fuenteTermica.js"
 
+const MET = 58.2/7
+const SUPERFICIE_CORPORAL = 1.5
+
 export default class Persona extends FuenteTermica {
 
-    constructor(_vestimenta, _clima, _actividad) {
+    constructor(_coeficienteVestimenta) {
         super()
-        this._vestimenta = _vestimenta
-        this._climaActual = _clima
-        this._actividad = _actividad
+        this._coeficienteVestimenta = _coeficienteVestimenta
     }
 
-    get vestimenta() {
-        return this._vestimenta
+    get coeficienteVestimenta() {
+        return this._coeficienteVestimenta
     }
 
-    set vestimenta(_vestimenta) {
-        this._vestimenta = _vestimenta
+    set coeficienteVestimenta(_coeficienteVestimenta) {
+        this._coeficienteVestimenta = _coeficienteVestimenta
     }
 
-    get actividad() {
-        return this._actividad
-    }
-
-    set actividad(_actividad) {
-        this._actividad = _actividad
-    }
-
-    get climaActual() {
-        return this._climaActual
-    }
-
-    set climaActual(_clima) {
-        this._climaActual = _clima
-    }
-
-    calcularCargaTermica() {
-        let cargaTermica
-        switch(this._vestimenta){
-            case 'ligera':
-                switch(this.climaActual){
-                    case 'templado':
-                        cargaTermica = 15
-                    break
-                    case 'calido':
-                        cargaTermica = 25
-                    break
-                }
-            break
-            case 'abrigada':   
-                switch(this._climaActual){
-                    case 'templado':
-                        cargaTermica = 50
-                    break
-                    case 'calido':
-                        cargaTermica = 100
-                    break
-                }
-            break
-        }
-        switch(this._actividad){
-            case 'sedentaria':
-                cargaTermica += 70
-            break
-            case 'ligera':
-                cargaTermica += 90
-            break
-            case 'moderada':
-                cargaTermica += 125
-            break
-            case 'intensa':
-                cargaTermica += 175
-            break
-        }
-        return cargaTermica
+    calcularCargaTermica(actividadTazaMet) {
+        return this._coeficienteVestimenta * actividadTazaMet * (MET * SUPERFICIE_CORPORAL)
     }
 }
