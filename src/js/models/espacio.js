@@ -6,7 +6,7 @@ import Persona from "./persona.js"
 const HABITABLE = 1
 const SEMIHABITABLE = 2
 const NO_HABITABLE = 3
-const CARGA_ELECTRODOMESTICO = 200
+const CARGA_ELECTRODOMESTICO = 100
 const GROSOR_PARED = 0.3
 
 export default class Espacio {
@@ -179,14 +179,37 @@ export default class Espacio {
 
     calcularHabitabilidad(temperaturaAmbiente = 0, temperaturaInicial = this._temperatura, temperaturaAdyacente = 0) {
         let cargaPersonas = 0
+        let carga_mayor = 0
         this.habitantes.forEach((persona) => {
             if (persona instanceof Persona) {
                 cargaPersonas += persona.calcularCargaTermica(this._actividad.MET)
             }
         })
+        carga_mayor = cargaPersonas
         let radiacionSolar = this.areaVentana * this._material.coeficienteAbsorcionSolar * this.radiacion // radiacion solar incidente
-        let cargaAdyacente = (((temperaturaAdyacente > this._temperatura ? temperaturaAdyacente - temperaturaInicial : 0) * (this._ancho * this._alto) * this._material.coeficiente) / GROSOR_PARED) 
+        carga_mayor > radiacionSolar ? undefined : carga_mayor = radiacionSolar
+        let cargaAdyacente = (((temperaturaAdyacente > this._temperatura ? temperaturaAdyacente - temperaturaInicial : 0) * (this._ancho * this._alto) * this._material.coeficiente) / GROSOR_PARED)
+        carga_mayor > cargaAdyacente ? undefined : carga_mayor = cargaAdyacente
+        carga_mayor > CARGA_ELECTRODOMESTICO * this._electrodomesticos ? undefined : carga_mayor = CARGA_ELECTRODOMESTICO * this._electrodomesticos
         // console.log(`carga adyacente: ${cargaAdyacente}`)
+        this._recomendacion = 0
+        switch (carga_mayor){
+            case cargaPersonas :
+                this._recomendacion = 1
+                break
+            case radiacionSolar:
+                this._recomendacion = 2
+                break
+            case cargaAdyacente:
+                this._recomendacion = 3
+                break 
+            case CARGA_ELECTRODOMESTICO * this._electrodomesticos:
+                this._recomendacion = 4
+                break
+            default:
+                this._recomendacion = 0
+                break
+        }
 
         let cargaTotal = radiacionSolar + cargaPersonas + cargaAdyacente + CARGA_ELECTRODOMESTICO * this._electrodomesticos + (this.material.coeficiente * (this.areaPared + this.areaPiso)) * (this._temperatura - temperaturaAmbiente)
         this._temperatura = (cargaTotal) / (this.material.coeficiente * (this.areaPared + this.areaPiso)) + temperaturaAmbiente
