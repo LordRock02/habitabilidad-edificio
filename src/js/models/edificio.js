@@ -11,6 +11,7 @@ export default class Edificio {
 
     constructor(_espacios = [], _temperaturaAmbiente = 17, _hora = MANANA) {
         this._espacios = _espacios
+        this._actividades = []
         this._temperaturaAmbiente = _temperaturaAmbiente
         this._hora = _hora
         this.setSol(this._hora)
@@ -45,11 +46,11 @@ export default class Edificio {
         return this._sol
     }
 
-    getListaLocales(){
+    getListaLocales() {
         let locales = []
         this.espacios.forEach(piso => {
             piso.forEach(espacio => {
-                if(espacio.tipo == 'LOCAL'){
+                if (espacio.tipo == 'LOCAL') {
                     locales.push(espacio.id)
                 }
             })
@@ -94,6 +95,7 @@ export default class Edificio {
         let pasillo
         let visitados = []
         let pasillos = []
+        //console.log(`espacio calcular Habitabilidad ${JSON.stringify(idEspacio)}`)
         let espacio = this.buscarEspacio(idEspacio)
         espacio.calcularHabitabilidad(this._temperaturaAmbiente)
         visitados.push(espacio.id)
@@ -131,28 +133,100 @@ export default class Edificio {
             }
         })
         if (pasillo) {
+            let n = 1
             pasillo.vecinos.forEach(vecinoId => {
-                let n = 1
                 let vecino = this.buscarEspacio(vecinoId)
                 // console.log(vecinoId)
                 if (vecino.tipo == 'PASILLO') {
                     pasillos.push(vecino)
-                    console.log('pasillos', pasillos)
+                    //console.log('pasillos', pasillos)
                 }
                 if (!visitados.includes(vecinoId)) {
                     vecino.calcularHabitabilidad(this._temperaturaAmbiente, undefined, pasillo.temperatura * (1 - 0.3) ^ n)
                     visitados.push(vecinoId)
                     n++
                 }
-                while (pasillos.length > 0) {
-                    //console.log(pasillos)
-                    pasillo = pasillos.pop()
-                    //console.log(`pasillos : ${pasillos}`)
-                    propagar(pasillo)
-                }
+                // while (pasillos.length > 0) {
+                //     //console.log(pasillos)
+                //     pasillo = pasillos.pop()
+                //     //console.log(`pasillos : ${pasillos}`)
+                //     propagar(pasillo)
+                // }
             })
 
         }
         return espacio.temperatura
+    }
+    vaciarEspacios() {
+        this._espacios.forEach(piso => {
+            piso.forEach(espacio => {
+                if (espacio instanceof Espacio) {
+                    espacio.actividad = {}
+                    espacio.coeficiente = 0
+                    espacio.habitantes = []
+                    espacio.electrodomesticos = 0
+                    espacio.temperatura = 15
+                }
+            })
+        })
+    }
+    organizarEspacios() {
+        // console.log('organizar espacios')
+        const actividadesEspacios = []
+        const asignar = (espacio) => {
+            if (espacio) {
+                const actividadEspacio = actividadesEspacios.pop()
+                espacio.actividad = actividadEspacio.actividad
+                espacio.habitantes = actividadEspacio.habitantes
+                espacio.electrodomesticos = actividadEspacio.electrodomesticos
+                espacio.coeficiente = actividadEspacio.coeficiente
+                this.calcularHabitabilidadEspacio(espacio.id)
+            }
+        }
+        this._espacios.forEach(piso => {
+            piso.forEach(espacio => {
+                if (espacio instanceof Espacio && espacio.ocupado) {
+                    actividadesEspacios.push({
+                        actividad: espacio.actividad,
+                        habitantes: espacio.habitantes,
+                        electrodomesticos: espacio.electrodomesticos,
+                        coeficiente: espacio.coeficiente
+                    })
+                }
+            })
+        })
+        this.vaciarEspacios()
+        actividadesEspacios.sort((a, b) => a.coeficiente - b.coeficiente)
+        while (actividadesEspacios.length > 0) {
+            const espacio = this._espacios.find(piso =>
+                piso.find(espacio => !espacio.ocupado && espacio.radiacion === 0 && !espacio.vecinos.some(id => this.buscarEspacio(id).ocupado))
+            )?.find(espacio => !espacio.ocupado && espacio.radiacion === 0 && !espacio.vecinos.some(id => this.buscarEspacio(id).ocupado))
+            console.log('organizar espacio', espacio)
+            if (!espacio) {
+                break
+            }
+            asignar(espacio)
+        }
+        while (actividadesEspacios.length > 0) {
+            const espacio = this._espacios.reverse().find(piso =>
+                piso.find(espacio => !espacio.ocupado && espacio.radiacion === 0)
+            )?.find(espacio => !espacio.ocupado && espacio.radiacion === 0)
+            console.log('organizar espacio', espacio)
+            if (!espacio) {
+                break
+            }
+            asignar(espacio)
+        }
+        while (actividadesEspacios.length > 0) {
+            const espacio = this._espacios.reverse().find(piso =>
+                piso.find(espacio => !espacio.ocupado)
+            )?.find(espacio => !espacio.ocupado)
+            console.log('organizar espacio', espacio)
+            if (!espacio) {
+                break
+            }
+            asignar(espacio)
+        }
+        console.log(actividadesEspacios)
     }
 }

@@ -10,7 +10,7 @@ const CARGA_ELECTRODOMESTICO = 100
 const GROSOR_PARED = 0.3
 
 export default class Espacio {
-    constructor(_id = null, _tipo = null, _vecinos = [], _x, _y, _z, _material, _ancho, _alto, _longitud, _electrodomesticos = 0, _temperatura = 15, _temperaturaInicial = 15) {
+    constructor(_id = null, _tipo = null, _vecinos = [], _x, _y, _z, _material, _ancho, _alto, _longitud, _electrodomesticos = 0, _temperatura = 15) {
         this._id = _id
         this._tipo = _tipo
         this._vecinos = _vecinos
@@ -28,8 +28,8 @@ export default class Espacio {
         this._actividad = {}
         this._electrodomesticos = _electrodomesticos
         this._temperatura = _temperatura
-        this._temperaturaInicial = _temperaturaInicial
         this._radiacion = 0
+        this._coeficiente = 0
     }
 
     set id(_id) {
@@ -165,6 +165,10 @@ export default class Espacio {
         return this._temperatura
     }
 
+    set temperatura(_temperatura = 15) {
+        this._temperatura = _temperatura
+    }
+
     set radiacion(_radiacion) {
         this._radiacion = _radiacion
     }
@@ -173,11 +177,24 @@ export default class Espacio {
         return this._radiacion
     }
 
+    get coeficiente() {
+        return this._coeficiente
+    }
+
+    set coeficiente(_coeficiente) {
+        this._coeficiente = _coeficiente
+    }
+
+    get ocupado(){
+        return Object.keys(this._actividad).length > 0
+    }
+
     addVecino(idVecino) {
         this._vecinos.push(idVecino)
     }
 
     calcularHabitabilidad(temperaturaAmbiente = 0, temperaturaInicial = this._temperatura, temperaturaAdyacente = 0) {
+        //console.log(`espacio ${this.id} temperatura adyacente ${temperaturaAdyacente}`)
         let cargaPersonas = 0
         let carga_mayor = 0
         this.habitantes.forEach((persona) => {
@@ -193,8 +210,8 @@ export default class Espacio {
         carga_mayor > CARGA_ELECTRODOMESTICO * this._electrodomesticos ? undefined : carga_mayor = CARGA_ELECTRODOMESTICO * this._electrodomesticos
         // console.log(`carga adyacente: ${cargaAdyacente}`)
         this._recomendacion = 0
-        switch (carga_mayor){
-            case cargaPersonas :
+        switch (carga_mayor) {
+            case cargaPersonas:
                 this._recomendacion = 1
                 break
             case radiacionSolar:
@@ -202,7 +219,7 @@ export default class Espacio {
                 break
             case cargaAdyacente:
                 this._recomendacion = 3
-                break 
+                break
             case CARGA_ELECTRODOMESTICO * this._electrodomesticos:
                 this._recomendacion = 4
                 break
@@ -214,6 +231,7 @@ export default class Espacio {
         let cargaTotal = radiacionSolar + cargaPersonas + cargaAdyacente + CARGA_ELECTRODOMESTICO * this._electrodomesticos + (this.material.coeficiente * (this.areaPared + this.areaPiso)) * (this._temperatura - temperaturaAmbiente)
         this._temperatura = (cargaTotal) / (this.material.coeficiente * (this.areaPared + this.areaPiso)) + temperaturaAmbiente
         // console.log(`id ${this._id} temperatura ${this._temperatura} radiacion : ${radiacionSolar} areaVentana : ${this.areaVentana} coeficiente : ${this.material.coeficienteAbsorcionSolar}`)
+        this._coeficiente = CARGA_ELECTRODOMESTICO * this._electrodomesticos + cargaPersonas
         return this._temperatura
     }
 }

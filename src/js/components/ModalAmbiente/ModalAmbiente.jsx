@@ -45,7 +45,7 @@ const ModalAmbiente = ({ setShowModalAmbiente, setReload }) => {
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="temperatura"># electrodomesticos</label>
+                        <label htmlFor="temperatura">Temperatura</label>
                         <input
                             type="number"
                             id="numElectrodomesticos"

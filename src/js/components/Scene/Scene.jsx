@@ -10,6 +10,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { faSun } from "@fortawesome/free-solid-svg-icons"
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
 import { faShuffle } from "@fortawesome/free-solid-svg-icons"
+import { faRotate } from "@fortawesome/free-solid-svg-icons"
 import ModalActividad from "../ModalActividad/ModalActividad"
 import ModalAmbiente from "../ModalAmbiente/ModalAmbiente"
 import ModalRecomendaciones from "../ModalRecomendaciones/ModalRecomendaciones"
@@ -18,6 +19,12 @@ import generarActividadesAleatorias from "../../../main"
 const HABITABLE = 1
 const SEMIHABITABLE = 2
 const NO_HABITABLE = 3
+
+const estado = {
+    1: 'Espacio Habitable',
+    2: 'Espacio Semihabitable',
+    3: 'Espacio no Habitable'
+}
 
 
 const Scene = () => {
@@ -53,6 +60,8 @@ const Scene = () => {
         }
     }
 
+
+
     useEffect(() => {
         setReload(false)
         console.log(`reload ${reload}`)
@@ -60,6 +69,8 @@ const Scene = () => {
         const scene = new THREE.Scene()
         const camera = new THREE.PerspectiveCamera(25, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000)
         const group = new THREE.Group()
+        const raycaster = new THREE.Raycaster()
+        const mouse = new THREE.Vector2()
         camera.position.set(0, 0, 20)
         scene.add(camera)
         scene.add(group)
@@ -69,6 +80,8 @@ const Scene = () => {
 
         const controls = new OrbitControls(camera, renderer.domElement)
         controls.enableDamping = true
+
+
 
         //RESIZE
         const resize = () => {
@@ -85,6 +98,29 @@ const Scene = () => {
         const aristas = []
         const nodos = {}
 
+        const onMuseClick = (e) => {
+            mouse.x = (e.clientX / window.innerWidth) * 2 - 1
+            mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
+
+            raycaster.setFromCamera(mouse, camera)
+
+            const intersects = raycaster.intersectObjects(Object.values(nodos))
+
+            if (intersects.length > 0 && !showModalActividad && !showModalAmbiente && !showModalRecomendaciones) {
+                const clickedNode = intersects[0].object
+                if (clickedNode) {
+                    let espacio = edificio.buscarEspacio(clickedNode.userData.id)
+                    if (espacio instanceof Espacio) {
+                        alert(`espacio: ${espacio.id}\ntemperatura: ${espacio.temperatura}`)
+                    }
+                }
+            }
+
+        }
+
+
+        window.addEventListener('click', onMuseClick, false)
+
         if (edificio instanceof Edificio) {
             for (let piso in edificio.espacios) {
                 for (let espacio of edificio.espacios[piso]) {
@@ -97,6 +133,7 @@ const Scene = () => {
                         }
                         const nodo = new THREE.Mesh(geometry, material)
                         nodo.position.set(espacio.x, espacio.y, espacio.z)
+                        nodo.userData.id = espacio.id
                         nodos[espacio.id] = nodo
                         group.add(nodo)
                         for (let vecino of espacio.vecinos) {
@@ -113,10 +150,10 @@ const Scene = () => {
         //(0, 15, 0)
         //(0, 4, -15)
         const sol = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), new THREE.MeshBasicMaterial({ color: 0xFFF822 }))
-        
+
         if (edificio instanceof Edificio) {
             sol.position.set(edificio.sol.x, edificio.sol.y, edificio.sol.z)
-            console.log(`SOL : ${JSON.stringify(edificio.sol)}`)
+            //console.log(`SOL : ${JSON.stringify(edificio.sol)}`)
         }
         group.add(sol)
 
@@ -125,7 +162,7 @@ const Scene = () => {
         const radius = 0.025; // Grosor del tubo
         const color = 0x7453FD;
 
-        console.log(aristas)
+        // console.log(aristas)
         aristas.forEach(arista => {
             const nodo1 = nodos[arista[0]]
             const nodo2 = nodos[arista[1]]
@@ -148,12 +185,14 @@ const Scene = () => {
 
         return () => {
             currentMount.removeChild(renderer.domElement)
+            window.removeEventListener('resize', resize)
+            window.removeEventListener('click', onMuseClick)
         }
     }, [edificio, reload])
     return (
         <>
-            {showModalActividad && <ModalActividad setShowModalActividad={setShowModalActividad} setReload={setReload}  />}
-            {showModalAmbiente && <ModalAmbiente setShowModalAmbiente={setShowModalAmbiente} setReload={setReload}/>}
+            {showModalActividad && <ModalActividad setShowModalActividad={setShowModalActividad} setReload={setReload} />}
+            {showModalAmbiente && <ModalAmbiente setShowModalAmbiente={setShowModalAmbiente} setReload={setReload} />}
             {showModalRecomendaciones && <ModalRecomendaciones setShowModalRecomendaciones={setShowModalRecomendaciones} />}
             <div className="contenedor3D" style={{ width: '100%', height: '100vh' }} ref={mountRef}>
                 <div className="toolsContainer">
@@ -161,6 +200,7 @@ const Scene = () => {
                     <a className="option" onClick={() => { setShowModalAmbiente(true) }}><FontAwesomeIcon icon={faSun} /></a>
                     <a className="option" onClick={() => { setShowModalRecomendaciones(true) }}><FontAwesomeIcon icon={faCircleExclamation} /></a>
                     <a className="option" onClick={() => { generarActividadesAleatorias(edificio); setReload(true) }}><FontAwesomeIcon icon={faShuffle} /></a>
+                    <a className="option" onClick={() => { edificio.organizarEspacios(); setReload(true) }}><FontAwesomeIcon icon={faRotate} /></a>
                 </div>
             </div>
         </>
