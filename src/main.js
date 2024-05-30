@@ -12,7 +12,7 @@ const vestimenta = {
   }
 }
 
-const generarActividadesAleatorias = (edificio) => {
+const generarActividadesAleatorias = (edificio, ctdad) => {
   edificio.vaciarEspacios()
   const nodos_visitados = []
 
@@ -31,7 +31,7 @@ const generarActividadesAleatorias = (edificio) => {
   }
 
   if (edificio instanceof Edificio) {
-    const numActividades = randomInt(20, 40)
+    const numActividades = randomInt(ctdad, ctdad)
     for (let i = 0; i < numActividades; i++) {
       const numPersonas = randomInt(10, 20)
       const numDispositivos = randomInt(10, 20)

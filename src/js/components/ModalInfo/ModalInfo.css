@@ -1,0 +1,30 @@
+.custom-modal-size .modal-dialog {
+  max-width: 80%; /* Adjust as needed */
+}
+.containerAmbiente {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.containerAmbiente div{
+  display: flex;
+  gap: 20px;
+}
+.containerAmbiente div label {
+  margin-bottom: 5px;
+}
+.containerAmbiente div input,
+.containerAmbiente div select {
+  padding: 8px;
+  border-radius: 15px;
+
+}
+.actividadContainer{
+  width: 100%;
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

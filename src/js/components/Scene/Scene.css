@@ -26,3 +26,19 @@
 .option:hover{
     color:rgb(134, 23, 225);
 }
+.contenedor3D .infoBtn {
+    height: 60px;
+    width: 65px;
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+}
+.infoBtn{
+    font-size: 2.5rem;
+}

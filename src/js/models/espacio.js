@@ -185,7 +185,7 @@ export default class Espacio {
         this._coeficiente = _coeficiente
     }
 
-    get ocupado(){
+    get ocupado() {
         return Object.keys(this._actividad).length > 0
     }
 
@@ -207,7 +207,7 @@ export default class Espacio {
         carga_mayor > radiacionSolar ? undefined : carga_mayor = radiacionSolar
         let cargaAdyacente = (((temperaturaAdyacente > this._temperatura ? temperaturaAdyacente - temperaturaInicial : 0) * (this._ancho * this._alto) * this._material.coeficiente) / GROSOR_PARED)
         carga_mayor > cargaAdyacente ? undefined : carga_mayor = cargaAdyacente
-        carga_mayor > CARGA_ELECTRODOMESTICO * this._electrodomesticos ? undefined : carga_mayor = CARGA_ELECTRODOMESTICO * this._electrodomesticos
+        carga_mayor > CARGA_ELECTRODOMESTICO * this._electrodomesticos * 0.05 ? undefined : carga_mayor = CARGA_ELECTRODOMESTICO * this._electrodomesticos
         // console.log(`carga adyacente: ${cargaAdyacente}`)
         this._recomendacion = 0
         switch (carga_mayor) {

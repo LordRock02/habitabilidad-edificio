@@ -11,9 +11,12 @@ import { faSun } from "@fortawesome/free-solid-svg-icons"
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
 import { faShuffle } from "@fortawesome/free-solid-svg-icons"
 import { faRotate } from "@fortawesome/free-solid-svg-icons"
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import ModalActividad from "../ModalActividad/ModalActividad"
 import ModalAmbiente from "../ModalAmbiente/ModalAmbiente"
 import ModalRecomendaciones from "../ModalRecomendaciones/ModalRecomendaciones"
+import ModalActividadRandom from "../ModalActividadRandom/ModalActividadRandom"
+import ModalInfo from "../ModalInfo/ModalInfo"
 import generarActividadesAleatorias from "../../../main"
 
 const HABITABLE = 1
@@ -33,6 +36,9 @@ const Scene = () => {
     const [showModalActividad, setShowModalActividad] = useState(false)
     const [showModalAmbiente, setShowModalAmbiente] = useState(false)
     const [showModalRecomendaciones, setShowModalRecomendaciones] = useState(false)
+    const [showModalActividadRandom, setShowModalActividadRandom] = useState(false)
+    const [showModalInfo, setShowModalInfo] = useState(false)
+    const [cameraPosition, setCameraPosition] = useState(null)
     const [reload, setReload] = useState(false)
 
     const createTubeBetweenPoints = (startPoint, endPoint, radius, color) => {
@@ -60,7 +66,14 @@ const Scene = () => {
         }
     }
 
-
+    const initializeScene = (camera) => {
+        if (!cameraPosition) {
+            camera.position.set(0, 0, 20);
+            setCameraPosition(camera.position.clone())
+        } else {
+            camera.position.copy(cameraPosition)
+        }
+    }
 
     useEffect(() => {
         setReload(false)
@@ -71,7 +84,9 @@ const Scene = () => {
         const group = new THREE.Group()
         const raycaster = new THREE.Raycaster()
         const mouse = new THREE.Vector2()
-        camera.position.set(0, 0, 20)
+        if (currentMount) {
+            initializeScene(camera)
+        }
         scene.add(camera)
         scene.add(group)
         const renderer = new THREE.WebGLRenderer()
@@ -98,7 +113,10 @@ const Scene = () => {
         const aristas = []
         const nodos = {}
 
-        const onMuseClick = (e) => {
+        const onMouseClick = (e) => {
+            if (showModalActividad || showModalAmbiente || showModalRecomendaciones) {
+                return;
+            }
             mouse.x = (e.clientX / window.innerWidth) * 2 - 1
             mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
 
@@ -111,7 +129,7 @@ const Scene = () => {
                 if (clickedNode) {
                     let espacio = edificio.buscarEspacio(clickedNode.userData.id)
                     if (espacio instanceof Espacio) {
-                        alert(`espacio: ${espacio.id}\ntemperatura: ${espacio.temperatura}`)
+                        alert(`espacio: ${espacio.id}\nactividad: ${espacio.actividad.ACTIVIDAD}\ntemperatura: ${espacio.temperatura}`)
                     }
                 }
             }
@@ -119,7 +137,7 @@ const Scene = () => {
         }
 
 
-        window.addEventListener('click', onMuseClick, false)
+        window.addEventListener('click', onMouseClick, false)
 
         if (edificio instanceof Edificio) {
             for (let piso in edificio.espacios) {
@@ -176,7 +194,7 @@ const Scene = () => {
         const animate = () => {
             controls.update()
             // group.rotation.x += 0.01
-            //group.rotation.y += 0.001
+            // group.rotation.y += 0.001
             renderer.render(scene, camera)
             requestAnimationFrame(animate)
         }
@@ -184,23 +202,32 @@ const Scene = () => {
         renderer.render(scene, camera)
 
         return () => {
-            currentMount.removeChild(renderer.domElement)
-            window.removeEventListener('resize', resize)
-            window.removeEventListener('click', onMuseClick)
+            if (currentMount) {
+                currentMount.removeChild(renderer.domElement)
+                window.removeEventListener('resize', resize)
+                window.removeEventListener('click', onMouseClick)
+                setCameraPosition(camera.position.clone())
+            }
         }
     }, [edificio, reload])
+
     return (
         <>
             {showModalActividad && <ModalActividad setShowModalActividad={setShowModalActividad} setReload={setReload} />}
             {showModalAmbiente && <ModalAmbiente setShowModalAmbiente={setShowModalAmbiente} setReload={setReload} />}
             {showModalRecomendaciones && <ModalRecomendaciones setShowModalRecomendaciones={setShowModalRecomendaciones} />}
+            {showModalActividadRandom && <ModalActividadRandom setShowModalActividadRandom={setShowModalActividadRandom} setReload={setReload} />}
+            {showModalInfo && <ModalInfo setShowModalInfo={setShowModalInfo} setReload={setReload} />}
             <div className="contenedor3D" style={{ width: '100%', height: '100vh' }} ref={mountRef}>
                 <div className="toolsContainer">
-                    <a className="option" onClick={() => { setShowModalActividad(true) }}><FontAwesomeIcon icon={faPlus} /></a>
+                    <a className="option" onClick={() => { setShowModalActividad(true); window.onclick = null }}><FontAwesomeIcon icon={faPlus} /></a>
                     <a className="option" onClick={() => { setShowModalAmbiente(true) }}><FontAwesomeIcon icon={faSun} /></a>
                     <a className="option" onClick={() => { setShowModalRecomendaciones(true) }}><FontAwesomeIcon icon={faCircleExclamation} /></a>
-                    <a className="option" onClick={() => { generarActividadesAleatorias(edificio); setReload(true) }}><FontAwesomeIcon icon={faShuffle} /></a>
+                    <a className="option" onClick={() => { setShowModalActividadRandom(true) }}><FontAwesomeIcon icon={faShuffle} /></a>
                     <a className="option" onClick={() => { edificio.organizarEspacios(); setReload(true) }}><FontAwesomeIcon icon={faRotate} /></a>
+                </div>
+                <div className="infoContainer">
+                    <a className="infoBtn" onClick={() => { setShowModalInfo(true) }}><FontAwesomeIcon icon={faCircleInfo} /></a>
                 </div>
             </div>
         </>
