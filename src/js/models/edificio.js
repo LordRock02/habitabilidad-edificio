@@ -199,8 +199,8 @@ export default class Edificio {
         actividadesEspacios.sort((a, b) => a.coeficiente - b.coeficiente)
         while (actividadesEspacios.length > 0) {
             const espacio = this._espacios.find(piso =>
-                piso.find(espacio => !espacio.ocupado && espacio.radiacion === 0 && !espacio.vecinos.some(id => this.buscarEspacio(id).ocupado))
-            )?.find(espacio => !espacio.ocupado && espacio.radiacion === 0 && !espacio.vecinos.some(id => this.buscarEspacio(id).ocupado))
+                piso.find(espacio => !espacio.ocupado && espacio.radiacion === 0 && !espacio.vecinos.some(id => this.buscarEspacio(id).ocupado) && espacio.tipo != 'PASILLO' && espacio.tipo != 'ASCENSOR')
+            )?.find(espacio => !espacio.ocupado && espacio.radiacion === 0 && !espacio.vecinos.some(id => this.buscarEspacio(id).ocupado) && espacio.tipo != 'PASILLO' && espacio.tipo != 'ASCENSOR')
             console.log('organizar espacio', espacio)
             if (!espacio) {
                 break
@@ -209,8 +209,8 @@ export default class Edificio {
         }
         while (actividadesEspacios.length > 0) {
             const espacio = this._espacios.reverse().find(piso =>
-                piso.find(espacio => !espacio.ocupado && espacio.radiacion === 0)
-            )?.find(espacio => !espacio.ocupado && espacio.radiacion === 0)
+                piso.find(espacio => !espacio.ocupado && espacio.radiacion === 0 && espacio.tipo != 'PASILLO' && espacio.tipo != 'ASCENSOR')
+            )?.find(espacio => !espacio.ocupado && espacio.radiacion === 0 && espacio.tipo != 'PASILLO' && espacio.tipo != 'ASCENSOR')
             console.log('organizar espacio', espacio)
             if (!espacio) {
                 break
@@ -219,12 +219,9 @@ export default class Edificio {
         }
         while (actividadesEspacios.length > 0) {
             const espacio = this._espacios.reverse().find(piso =>
-                piso.find(espacio => !espacio.ocupado)
-            )?.find(espacio => !espacio.ocupado)
+                piso.find(espacio => !espacio.ocupado && espacio.tipo != 'PASILLO' && espacio.tipo != 'ASCENSOR')
+            )?.find(espacio => !espacio.ocupado && espacio.tipo != 'PASILLO' && espacio.tipo != 'ASCENSOR')
             console.log('organizar espacio', espacio)
-            if (!espacio) {
-                break
-            }
             asignar(espacio)
         }
         console.log(actividadesEspacios)
