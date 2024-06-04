@@ -137,7 +137,7 @@ const Scene = () => {
         }
 
 
-        window.addEventListener('click', onMouseClick, false)
+       // window.addEventListener('click', onMouseClick, false)
 
         if (edificio instanceof Edificio) {
             for (let piso in edificio.espacios) {
